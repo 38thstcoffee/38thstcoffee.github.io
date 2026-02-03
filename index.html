@@ -53,7 +53,6 @@
     .logo img{width:100%;height:100%;object-fit:cover}
     .brandText h1{
       margin:0;
-      font-family: 'Spectral', serif;
       font-size:38px;
       letter-spacing:.2px;
       font-weight:700;
@@ -85,7 +84,7 @@
     .btn:hover{background:rgba(251,247,241,.82);border-color:rgba(27,20,16,.24)}
     .btn:active{transform:translateY(1px)}
     .btn.primary{
-      background: #2a201a; /* softer than ink */
+      background: #2a201a;
       color: var(--paper);
       border-color: rgba(27,20,16,.85);
       box-shadow: 0 14px 30px rgba(27,20,16,.12);
@@ -161,33 +160,35 @@
     .tableShell{
       border:1px solid rgba(27,20,16,.18);
       border-radius:22px;
-      overflow:hidden; /* clip corners so both scrollbars look like one piece */
+      overflow:hidden;
       background: rgba(251,247,241,.78);
       box-shadow: 0 14px 34px var(--shadow);
       backdrop-filter: blur(8px);
       margin-top:12px;
     }
 
-    /* Top scrollbar (inside the same shell, looks like the bottom one) */
+    /* Top scrollbar */
     .tableScrollTop{
       overflow-x:auto;
       overflow-y:hidden;
       height:16px;
       border-bottom:1px solid rgba(27,20,16,.12);
       background: rgba(255,255,255,.28);
+      -webkit-overflow-scrolling: touch;
     }
     .tableScrollTopInner{height:1px;}
 
     /* Bottom scroll area */
     .tableWrap{
-      overflow:auto; /* bottom scrollbar */
+      overflow:auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     table{
       width:100%;
       border-collapse:collapse;
       font-size:14px;
-      table-layout:fixed; /* obey px widths */
+      table-layout:fixed;
     }
 
     thead th{
@@ -198,13 +199,18 @@
       color:rgba(27,20,16,.88);
       position:sticky; top:0; z-index:1;
 
-      /* small-caps luxe menu vibe */
       font-variant-caps: all-small-caps;
       letter-spacing:.14em;
       text-transform:none;
       font-weight:600;
       font-size:13px;
+
+      /* iOS table rendering safety */
+      overflow:hidden;
     }
+
+    /* IMPORTANT: prevent mobile Safari "spill" into neighbor columns */
+    th, td{ overflow:hidden; }
 
     tbody td{
       padding:12px 12px;
@@ -212,11 +218,18 @@
       vertical-align:top;
       color:rgba(27,20,16,.72);
 
-      /* ✅ wrapping behavior so px widths work */
+      /* wrapping so px widths work */
       white-space: normal;
       overflow-wrap: anywhere;
-      word-break: normal;
+      word-break: break-word; /* <-- iOS-friendly */
       hyphens: auto;
+    }
+
+    /* Extra safety for Tools column (slashes etc.) */
+    thead th:nth-child(4),
+    tbody td:nth-child(4){
+      overflow-wrap:anywhere;
+      word-break: break-word;
     }
 
     tbody tr:hover td{background:rgba(255,255,255,.45);color:rgba(27,20,16,.90)}
@@ -225,9 +238,12 @@
     .avail{white-space:nowrap}
     .nowrap{white-space:nowrap}
 
-    /* /* FORCE Roast column narrow + ellipsis (prevents long roast text widening it) */
-
-    /* Keep short columns tidy (optional) */
+    /* Mobile polish */
+    @media (max-width: 520px){
+      thead th, tbody td{ padding:10px 10px; }
+      table{ font-size:13px; }
+      .wrap{ padding:22px 14px 56px; }
+    }
 
     .footer{margin-top:18px;color:rgba(27,20,16,.68);font-size:13px;line-height:1.55}
     .small{font-size:12px}
@@ -259,7 +275,6 @@
     <div class="rule headerRule"></div>
 
     <div class="grid">
-      <!-- LEFT: How to order -->
       <section class="card">
         <h2>How to order + pickup</h2>
         <ul style="margin:0;padding-left:18px">
@@ -271,7 +286,6 @@
         </ul>
       </section>
 
-      <!-- RIGHT: Coffee Flights (smaller) -->
       <section class="card callout compact">
         <h2>Coffee Flights</h2>
         <p style="margin:0">
@@ -299,13 +313,11 @@
         <option>Light to Medium</option>
         <option>Medium</option>
         <option>Medium to Dark</option>
-      
         <option>Dark</option>
       </select>
     </div>
     <div class="hint">Try: “espresso”, “V60”, “low-acid”, “chocolate”, or a country/region.</div>
 
-    <!-- One unified table component (top scrollbar INSIDE the table shell) -->
     <div class="tableShell">
       <div class="tableScrollTop" id="tableScrollTop">
         <div class="tableScrollTopInner" id="tableScrollTopInner"></div>
@@ -623,11 +635,21 @@
     const availEl = document.getElementById("filterAvailability");
     const roastEl = document.getElementById("filterRoast");
 
-    // Top scrollbar syncing
     const tableWrap = document.getElementById("tableWrap");
     const tableScrollTop = document.getElementById("tableScrollTop");
     const tableScrollTopInner = document.getElementById("tableScrollTopInner");
     const coffeeTable = document.getElementById("coffeeTable");
+
+    function escapeHtml(s){
+      return (s ?? "").toString()
+        .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;").replaceAll("'","&#039;");
+    }
+
+    // Insert soft break opportunities for Tools (wrap nicely at "/")
+    function toolsWithBreaks(s){
+      return escapeHtml(s).replaceAll("/", "/<wbr>");
+    }
 
     function syncTopScrollWidth(){
       if(!tableWrap || !tableScrollTop || !tableScrollTopInner || !coffeeTable) return;
@@ -640,12 +662,6 @@
       tableWrap.addEventListener("scroll", () => { tableScrollTop.scrollLeft = tableWrap.scrollLeft; });
       window.addEventListener("resize", syncTopScrollWidth);
       window.addEventListener("load", syncTopScrollWidth);
-    }
-
-    function escapeHtml(s){
-      return (s ?? "").toString()
-        .replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;").replaceAll("'","&#039;");
     }
 
     function render(){
@@ -669,7 +685,7 @@
           <td><div class="coffeeName">${escapeHtml(c.coffee)}</div></td>
           <td>${escapeHtml(c.roast)}</td>
           <td>${escapeHtml(c.process)}</td>
-          <td>${escapeHtml(c.tools)}</td>
+          <td>${toolsWithBreaks(c.tools)}</td>
           <td>${escapeHtml(c.flavor)}</td>
           <td>${escapeHtml(c.notes)}</td>
           <td class="avail">${escapeHtml(c.availability)}</td>
@@ -683,7 +699,6 @@
         rowsEl.innerHTML = `<tr><td colspan="10" style="padding:16px;color:rgba(27,20,16,.68)">No matches. Try “espresso”, “V60”, “low-acid”, “chocolate”, or a country.</td></tr>`;
       }
 
-      // IMPORTANT: update top scrollbar width after rerender
       syncTopScrollWidth();
     }
 
