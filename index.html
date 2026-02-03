@@ -66,10 +66,10 @@
       gap:10px;
       flex-wrap:wrap;
       align-items:center;
-      transform:none; /* default: no nudge on small screens */
+      transform:none; /* default (mobile) */
     }
     @media (min-width: 900px){
-      .cta{ transform: translate(-80px, 26px); } /* your nudge */
+      .cta{ transform: translate(-80px, 26px); } /* desktop nudge */
     }
 
     .btn{
@@ -157,34 +157,37 @@
     input:focus, select:focus{border-color:rgba(27,20,16,.35)}
     .hint{color:rgba(27,20,16,.68);font-size:13px;margin-top:6px}
 
-    /* Top horizontal scrollbar (mirror) */
-    .tableScrollTop{
-      overflow-x:auto;
-      overflow-y:hidden;
-      height:14px;
-      margin-top:12px;
-      border-radius:999px;
-      background: rgba(255,255,255,.35);
-      border:1px solid rgba(27,20,16,.12);
-    }
-    .tableScrollTopInner{
-      height:1px;
-    }
-
-    /* Table */
-    .tableWrap{
+    /* Table shell */
+    .tableShell{
       border:1px solid rgba(27,20,16,.18);
       border-radius:22px;
-      overflow:auto; /* bottom scroll */
+      overflow:hidden; /* clip corners so both scrollbars look like one piece */
       background: rgba(251,247,241,.78);
       box-shadow: 0 14px 34px var(--shadow);
       backdrop-filter: blur(8px);
+      margin-top:12px;
     }
+
+    /* Top scrollbar (inside the same shell, looks like the bottom one) */
+    .tableScrollTop{
+      overflow-x:auto;
+      overflow-y:hidden;
+      height:16px;
+      border-bottom:1px solid rgba(27,20,16,.12);
+      background: rgba(255,255,255,.28);
+    }
+    .tableScrollTopInner{height:1px;}
+
+    /* Bottom scroll area */
+    .tableWrap{
+      overflow:auto; /* bottom scrollbar */
+    }
+
     table{
       width:100%;
       border-collapse:collapse;
       font-size:14px;
-      table-layout:fixed; /* important for fixed column widths */
+      table-layout:fixed; /* obey px widths */
     }
 
     thead th{
@@ -202,14 +205,22 @@
       font-weight:600;
       font-size:13px;
     }
+
     tbody td{
       padding:12px 12px;
       border-bottom:1px solid rgba(27,20,16,.12);
       vertical-align:top;
       color:rgba(27,20,16,.72);
+
+      /* ✅ wrapping behavior so px widths work */
+      white-space: normal;
+      overflow-wrap: anywhere;
+      word-break: normal;
+      hyphens: auto;
     }
+
     tbody tr:hover td{background:rgba(255,255,255,.45);color:rgba(27,20,16,.90)}
-    .coffeeName{color:rgba(27,20,16,.95);font-weight:700}
+    .coffeeName{color:rgba(27,20,16,.95);font-weight:700;overflow-wrap:anywhere}
     .price{white-space:nowrap;color:rgba(27,20,16,.95);font-weight:700}
     .avail{white-space:nowrap}
     .nowrap{white-space:nowrap}
@@ -222,6 +233,13 @@
       white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
+    }
+
+    /* Keep short columns tidy (optional) */
+    thead th:nth-child(3),
+    tbody td:nth-child(3){
+      width:50px;
+      max-width:50px;
     }
 
     .footer{margin-top:18px;color:rgba(27,20,16,.68);font-size:13px;line-height:1.55}
@@ -294,36 +312,38 @@
         <option>Light to Medium</option>
         <option>Medium</option>
         <option>Medium to Dark</option>
-        <option>Medium to Dark (versatile)</option>
+      
         <option>Dark</option>
       </select>
     </div>
     <div class="hint">Try: “espresso”, “V60”, “low-acid”, “chocolate”, or a country/region.</div>
 
-    <!-- TOP scrollbar -->
-    <div class="tableScrollTop" id="tableScrollTop">
-      <div class="tableScrollTopInner" id="tableScrollTopInner"></div>
-    </div>
+    <!-- One unified table component (top scrollbar INSIDE the table shell) -->
+    <div class="tableShell">
+      <div class="tableScrollTop" id="tableScrollTop">
+        <div class="tableScrollTopInner" id="tableScrollTopInner"></div>
+      </div>
 
-    <section class="tableWrap" id="tableWrap" style="margin-top:12px">
-      <table id="coffeeTable">
-        <thead>
-          <tr>
-            <th style="width:200px">Coffee</th>
-            <th style="width:50px">Roast</th>
-            <th style="width:50px">Process</th>
-            <th style="width:100px">Tools</th>
-            <th style="width:160px">Flavor Profile</th>
-            <th style="width:560px">Notes</th>
-            <th style="width:150px">Availability</th>
-            <th style="width:95px">Price</th>
-            <th style="width:90px">Bag</th>
-            <th style="width:260px">Origin</th>
-          </tr>
-        </thead>
-        <tbody id="rows"></tbody>
-      </table>
-    </section>
+      <section class="tableWrap" id="tableWrap">
+        <table id="coffeeTable">
+          <thead>
+            <tr>
+              <th style="width:200px">Coffee</th>
+              <th style="width:50px">Roast</th>
+              <th style="width:50px">Process</th>
+              <th style="width:100px">Tools</th>
+              <th style="width:160px">Flavor Profile</th>
+              <th style="width:560px">Notes</th>
+              <th style="width:150px">Availability</th>
+              <th style="width:95px">Price</th>
+              <th style="width:90px">Bag</th>
+              <th style="width:260px">Origin</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </section>
+    </div>
 
     <div class="footer">
       <div><strong>Questions?</strong> DM on Instagram or text anytime.</div>
@@ -431,7 +451,7 @@
       },
       {
         coffee: "Customer favorite: Uganda Bugisu Mt. Elgon Organic",
-        roast: "Medium to Dark (versatile)",
+        roast: "Medium to Dark",
         process: "Natural",
         tools: "V60/Drip/French press/Espresso",
         flavor: "Low-acid; raisin/fig/cocoa; brown sugar",
@@ -625,7 +645,6 @@
     function syncTopScrollWidth(){
       if(!tableWrap || !tableScrollTop || !tableScrollTopInner || !coffeeTable) return;
       tableScrollTopInner.style.width = coffeeTable.scrollWidth + "px";
-      // keep top bar aligned with bottom bar
       tableScrollTop.scrollLeft = tableWrap.scrollLeft;
     }
 
