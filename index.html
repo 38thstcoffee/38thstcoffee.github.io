@@ -169,6 +169,9 @@
       font-size:14px;
       min-width:fixed; 
     }
+
+
+
     
     thead th{
       text-align:left;
@@ -609,7 +612,7 @@
       rowsEl.innerHTML = filtered.map(c => `
         <tr>
           <td><div class="coffeeName">${escapeHtml(c.coffee)}</div></td>
-          <td class="nowrap">${escapeHtml(c.roast)}</td>
+          <td>${escapeHtml(c.roast)}</td>
           <td>${escapeHtml(c.process)}</td>
           <td>${escapeHtml(c.tools)}</td>
           <td>${escapeHtml(c.flavor)}</td>
