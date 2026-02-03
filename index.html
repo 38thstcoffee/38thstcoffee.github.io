@@ -1,112 +1,196 @@
+
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>38thStCoffee</title>
+  <title>38th St Coffee</title>
   <meta name="description" content="Artisan home roastery focused on single-origin coffees. Roasted to order. Order via Instagram DM or text." />
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
-      --bg:#0b0b0b;
-      --card:#121212;
-      --text:#f2f2f2;
-      --muted:#b7b7b7;
-      --line:#2a2a2a;
-      --accent:#ffffff;
-      --chip:#1b1b1b;
+      /* Luxury coffee shop palette */
+      --bg: #f2eadf;          /* luxe beige */
+      --paper: #fbf7f1;       /* ivory paper */
+      --ink: #1b1410;         /* espresso ink */
+      --muted: #4a3f36;       /* cocoa */
+      --line: rgba(27,20,16,.18);
+      --shadow: rgba(27,20,16,.06);
+      --accent: #1b1410;
+      --accent2: #b08a5a;     /* soft gold */
+      --chip: rgba(27,20,16,.06);
     }
+
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
-      background: linear-gradient(180deg, #0b0b0b 0%, #0f0f0f 60%, #0b0b0b 100%);
-      color:var(--text);
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 500px at 20% 10%, rgba(255,255,255,.55), rgba(255,255,255,0)),
+        radial-gradient(900px 450px at 85% 0%, rgba(255,255,255,.35), rgba(255,255,255,0)),
+        linear-gradient(180deg, var(--bg), #f3e8db 60%, var(--bg));
+      font-family: 'Spectral', serif;
     }
+
     a{color:inherit}
-    .wrap{max-width:1120px;margin:0 auto;padding:28px 16px 60px}
+    .wrap{max-width:1180px;margin:0 auto;padding:28px 16px 64px}
+
+    /* Header */
     header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
-    .brand h1{margin:0;font-size:28px;letter-spacing:0.2px}
-    .brand p{margin:6px 0 0;color:var(--muted);line-height:1.4}
-    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .brand{display:flex;gap:14px;align-items:center;min-width:min(680px,100%)}
+    .logo{
+      width:92px;height:92px;border-radius:18px;flex:0 0 auto;
+      background: rgba(255,255,255,.45);
+      border:1px solid var(--line);
+      box-shadow: 0 10px 28px var(--shadow);
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+    }
+    .logo img{width:100%;height:100%;object-fit:cover}
+    .brandText h1{
+      margin:0;
+      font-family: 'Spectral', serif;
+      font-size:38px;
+      letter-spacing:.2px;
+      font-weight:700;
+      line-height:1.05;
+    }
+    .brandText p{margin:8px 0 0;color:var(--muted);line-height:1.55;max-width:62ch}
+
+    .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
-      padding:12px 14px;border-radius:14px;border:1px solid var(--line);
-      text-decoration:none;background:rgba(255,255,255,0.06);
+      padding:11px 16px;border-radius:999px;border:1px solid rgba(27,20,16,.16);
+      text-decoration:none;background:rgba(251,247,241,.70);
       transition:transform .06s ease, background .2s ease, border-color .2s ease;
       font-weight:600;
+      letter-spacing:.01em;
+      box-shadow: 0 10px 22px var(--shadow);
+      backdrop-filter: blur(10px);
     }
-    .btn:hover{background:rgba(255,255,255,0.10);border-color:#3a3a3a}
+    .btn:hover{background:rgba(251,247,241,.82);border-color:rgba(27,20,16,.24)}
     .btn:active{transform:translateY(1px)}
-    .btn.primary{background:#fff;color:#000;border-color:#fff}
-    .btn.primary:hover{background:#f3f3f3}
-    .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:14px;margin-top:16px}
-    @media (max-width: 900px){ .grid{grid-template-columns:1fr} }
-    .card{
-      background:rgba(18,18,18,0.9);
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    .btn.primary{
+      background: #2a201a; /* softer than ink */
+      color: var(--paper);
+      border-color: rgba(27,20,16,.85);
+      box-shadow: 0 14px 30px rgba(27,20,16,.12);
     }
-    .card h2{margin:0 0 10px;font-size:16px}
-    .card p, .card li{color:var(--muted);line-height:1.5}
-    .callout{
-      background:linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
-      border:1px solid #3a3a3a;
-    }
-    .callout strong{color:#fff}
-    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-    .chip{background:var(--chip);border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:13px}
+    .btn.primary:hover{background:#241b16}
 
+    /* Divider */
+    .rule{height:1px;background:rgba(27,20,16,.14);margin:18px 0}
+    .headerRule{max-width:1120px;margin:16px auto 6px;opacity:.9}
+
+    /* Cards */
+    .grid{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;margin-top:18px}
+    @media (max-width: 900px){ .grid{grid-template-columns:1fr} .brand{min-width:100%} }
+
+    .card{
+      background: rgba(251,247,241,.86);
+      border:1px solid rgba(27,20,16,.14);
+      border-radius:22px;
+      padding:20px;
+      box-shadow: 0 12px 30px var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:14px;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:rgba(27,20,16,.86);
+      font-weight:700;
+    }
+    .card p, .card li{color:var(--muted);line-height:1.6}
+    .callout{
+      background: linear-gradient(135deg, rgba(255,255,255,.72), rgba(255,255,255,.36));
+      border-color: rgba(27,20,16,.18);
+    }
+    .callout strong{color:var(--ink)}
+
+    .compact{padding:14px;max-width:520px}
+    .compact h2{margin-bottom:8px;font-size:12px}
+    .compact p{font-size:14px}
+    .compact .chip{padding:6px 9px;font-size:12px}
+
+    .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .chip{
+      background: var(--chip);
+      border:1px solid rgba(27,20,16,.12);
+      padding:7px 10px;border-radius:999px;
+      color:rgba(27,20,16,.72);
+      font-size:13px
+    }
+
+    /* Controls */
     .controls{
       display:flex;gap:10px;flex-wrap:wrap;align-items:center;
-      margin-top:18px;margin-bottom:10px
+      margin-top:22px;margin-bottom:10px
     }
     input, select{
-      background:#0f0f0f;color:var(--text);
-      border:1px solid var(--line);
-      border-radius:12px;
+      background: rgba(255,255,255,.62);
+      color:var(--ink);
+      border:1px solid rgba(27,20,16,.18);
+      border-radius:14px;
       padding:10px 12px;
       outline:none;
+      box-shadow: 0 10px 24px var(--shadow);
+      font-family: 'Spectral', serif;
     }
     input{min-width:240px;flex:1}
-    select{min-width:180px}
-    .hint{color:var(--muted);font-size:13px;margin-top:6px}
+    select{min-width:190px}
+    input:focus, select:focus{border-color:rgba(27,20,16,.35)}
+    .hint{color:rgba(27,20,16,.68);font-size:13px;margin-top:6px}
 
+    /* Table */
     .tableWrap{
-      border:1px solid var(--line);
-      border-radius:18px;
-      overflow:hidden;
-      background:rgba(18,18,18,0.9);
+      border:1px solid rgba(27,20,16,.18);
+      border-radius:22px;
+      overflow:auto; /* allow scroll on smaller screens */
+      background: rgba(251,247,241,.78);
+      box-shadow: 0 14px 34px var(--shadow);
+      backdrop-filter: blur(8px);
     }
     table{
       width:100%;
       border-collapse:collapse;
       font-size:14px;
+      min-width:1600px; /* preserve wide columns */
     }
     thead th{
       text-align:left;
       padding:12px 12px;
-      background:#111;
-      border-bottom:1px solid var(--line);
-      color:#eaeaea;
-      position:sticky; top:0;
-      z-index:1;
+      background: rgba(255,255,255,.55);
+      border-bottom:1px solid rgba(27,20,16,.14);
+      color:rgba(27,20,16,.88);
+      position:sticky; top:0; z-index:1;
+
+      /* small-caps luxe menu vibe */
+      font-variant-caps: all-small-caps;
+      letter-spacing:.14em;
+      text-transform:none;
+      font-weight:600;
+      font-size:13px;
     }
     tbody td{
       padding:12px 12px;
-      border-bottom:1px solid var(--line);
+      border-bottom:1px solid rgba(27,20,16,.12);
       vertical-align:top;
-      color:var(--muted);
+      color:rgba(27,20,16,.72);
     }
-    tbody tr:hover td{background:rgba(255,255,255,0.04);color:#ddd}
-    .coffeeName{color:#fff;font-weight:700}
-    .price{white-space:nowrap;color:#fff;font-weight:700}
+    tbody tr:hover td{background:rgba(255,255,255,.45);color:rgba(27,20,16,.90)}
+    .coffeeName{color:rgba(27,20,16,.95);font-weight:700}
+    .price{white-space:nowrap;color:rgba(27,20,16,.95);font-weight:700}
     .avail{white-space:nowrap}
-    .muted{color:var(--muted)}
     .nowrap{white-space:nowrap}
-    .footer{margin-top:18px;color:var(--muted);font-size:13px;line-height:1.5}
+
+    .footer{margin-top:18px;color:rgba(27,20,16,.68);font-size:13px;line-height:1.55}
     .small{font-size:12px}
   </style>
 </head>
@@ -115,11 +199,16 @@
   <div class="wrap">
     <header>
       <div class="brand">
-        <h1>38thStCoffee</h1>
-        <p>
-          Thank you so much for your love and support! We’re an artisan home roastery focused on single-origin coffees.
-          <br/>Every bag is roasted to order — choose your roast level every time ❤️
-        </p>
+        <div class="logo" title="38th St Coffee">
+          <img src="logo.png" alt="38th St Coffee logo" />
+        </div>
+        <div class="brandText">
+          <h1>38th St Coffee</h1>
+          <p>
+            Thank you so much for your love and support! We’re an artisan home roastery focused on single-origin coffees.
+            Every bag is roasted to order — choose your roast level every time ❤️
+          </p>
+        </div>
       </div>
 
       <div class="cta">
@@ -128,19 +217,10 @@
       </div>
     </header>
 
-    <div class="grid">
-      <section class="card callout">
-        <h2>New: Coffee Flights</h2>
-        <p style="margin:0">
-          <strong>Coffee Flights — 4 × 3 oz</strong> of your choice of beans for <strong>$22</strong>.
-        </p>
-        <div class="chips">
-          <span class="chip">Great for tasting</span>
-          <span class="chip">Gifting</span>
-          <span class="chip">Finding your next favorite</span>
-        </div>
-      </section>
+    <div class="rule headerRule"></div>
 
+    <div class="grid">
+      <!-- LEFT: How to order -->
       <section class="card">
         <h2>How to order + pickup</h2>
         <ul style="margin:0;padding-left:18px">
@@ -151,6 +231,19 @@
           <li><strong>Shipping:</strong> free shipping with <strong>4+ bags</strong> ordered.</li>
         </ul>
       </section>
+
+      <!-- RIGHT: Coffee Flights (smaller) -->
+      <section class="card callout compact">
+        <h2>Coffee Flights</h2>
+        <p style="margin:0">
+          <strong>New: Coffee Flights — 4 × 3 oz</strong> of your choice of beans for <strong>$22</strong>.
+        </p>
+        <div class="chips">
+          <span class="chip">Tasting</span>
+          <span class="chip">Gifting</span>
+          <span class="chip">Find your next favorite</span>
+        </div>
+      </section>
     </div>
 
     <div class="controls">
@@ -160,35 +253,33 @@
         <option>Available</option>
         <option>Limited</option>
         <option>End of Season</option>
-        <option>Order 2 weeks in advance</option>
       </select>
       <select id="filterRoast">
         <option value="">All roast recommendations</option>
         <option>Light</option>
-        <option>Light-Medium</option>
         <option>Light to Medium</option>
         <option>Medium</option>
         <option>Medium to Dark</option>
-        <option>Medium-Dark</option>
+        <option>Medium to Dark (versatile)</option>
         <option>Dark</option>
       </select>
     </div>
-    <div class="hint">Tip: Use search for “espresso”, “V60”, “chocolate”, “low-acid”, or a country/region.</div>
+    <div class="hint">Try: “espresso”, “V60”, “low-acid”, “chocolate”, or a country/region.</div>
 
     <section class="tableWrap" style="margin-top:12px">
       <table>
         <thead>
           <tr>
-            <th style="width:190px">Coffee</th>
-            <th style="width:140px">Roast (Recommended)</th>
-            <th style="width:160px">Process</th>
-            <th style="width:170px">Recommended Tools</th>
+            <th style="width:340px">Coffee</th>
+            <th style="width:145px">Roast</th>
+            <th style="width:140px">Process</th>
+            <th style="width:160px">Tools</th>
             <th>Flavor Profile</th>
-            <th>Notes</th>
-            <th style="width:160px">Availability</th>
-            <th style="width:90px">Price</th>
+            <th style="width:560px">Notes</th>
+            <th style="width:150px">Availability</th>
+            <th style="width:95px">Price</th>
             <th style="width:90px">Bag</th>
-            <th style="width:240px">Origin</th>
+            <th style="width:260px">Origin</th>
           </tr>
         </thead>
         <tbody id="rows"></tbody>
@@ -197,7 +288,7 @@
 
     <div class="footer">
       <div><strong>Questions?</strong> DM on Instagram or text anytime.</div>
-      <div class="small">Site updated manually. If something sells out, I’ll confirm via DM/text.</div>
+      <div class="small">If something sells out, I’ll confirm via DM/text.</div>
     </div>
   </div>
 
@@ -229,7 +320,7 @@
       },
       {
         coffee: "New! DR Congo Idjwi Island",
-        roast: "Light-Medium",
+        roast: "Light to Medium",
         process: "Washed",
         tools: "V60/Drip/AeroPress",
         flavor: "Gingersnap cookie; molasses/cinnamon/ginger; lemondrop; toasty tea",
@@ -265,12 +356,12 @@
       },
       {
         coffee: "Rachel's favorite espresso beans: Sulawesi Toraja Organic",
-        roast: "Medium-Dark",
+        roast: "Medium to Dark",
         process: "Wet-hulled",
         tools: "French press / Hario / Espresso",
         flavor: "Chocolate, orange rind, black pepper, clean spice",
         notes: "Makes a latte like hot cocoa. Push extraction for sweetness (slightly finer grind / hotter water). Clean, spicy chocolate with less “earth” than Sumatra.",
-        availability: "Order 2 weeks in advance",
+        availability: "Available",
         price: "$18.00",
         bag: "8 oz",
         origin: "Indonesia — Sulawesi (Toraja / Sapan Minanga)"
@@ -282,7 +373,7 @@
         tools: "V60 / AeroPress / Iced",
         flavor: "Strawberry & watermelon, citrus, milk chocolate",
         notes: "Best as a bright, juicy filter. Use hotter water + slightly finer grind to bring out strawberry sweetness; great over ice.",
-        availability: "Order 2 weeks in advance",
+        availability: "Available",
         price: "$18.00",
         bag: "8 oz",
         origin: "Ethiopia — Sidamo (Shantawene Village / Daye Bensa)"
@@ -325,7 +416,7 @@
       },
       {
         coffee: "7 Beans Espresso Blend",
-        roast: "Medium-Dark",
+        roast: "Medium to Dark",
         process: "Blend (varies by component)",
         tools: "Espresso / Moka / Drip",
         flavor: "Classic, balanced espresso; milk-friendly",
@@ -524,7 +615,7 @@
       `).join("");
 
       if(filtered.length === 0){
-        rowsEl.innerHTML = `<tr><td colspan="10" style="padding:16px;color:#b7b7b7">No matches. Try a different search term (e.g., “espresso”, “V60”, “low-acid”, “chocolate”).</td></tr>`;
+        rowsEl.innerHTML = `<tr><td colspan="10" style="padding:16px;color:rgba(27,20,16,.68)">No matches. Try “espresso”, “V60”, “low-acid”, “chocolate”, or a country.</td></tr>`;
       }
     }
 
