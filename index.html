@@ -3,8 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>38th St Coffee</title>
-  <meta name="description" content="Artisan home roastery focused on single-origin coffees. Roasted to order. Order via Instagram DM or text." />
+
+  <title>38th St Coffee | Artisan Roasted-to-Order Single-Origin Coffee</title>
+  <meta name="description" content="38th St Coffee is an artisan micro-roastery offering roasted-to-order single-origin coffees. Pickup in 21211 or 20850. Order via Instagram DM or text." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://38thstcoffee.github.io/" />
+
+  <!-- Open Graph (social preview) -->
+  <meta property="og:title" content="38th St Coffee" />
+  <meta property="og:description" content="Artisan micro-roastery. Single-origin. Roasted to order. Pickup 21211 / 20850. Order via Instagram DM or text." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://38thstcoffee.github.io/" />
+  <meta property="og:image" content="https://38thstcoffee.github.io/logo.png" />
+
+  <!-- Twitter preview -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="38th St Coffee" />
+  <meta name="twitter:description" content="Artisan micro-roastery. Single-origin. Roasted to order. Pickup 21211 / 20850." />
+  <meta name="twitter:image" content="https://38thstcoffee.github.io/logo.png" />
+
+  <!-- LocalBusiness schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "38th St Coffee",
+    "url": "https://38thstcoffee.github.io/",
+    "telephone": "+14103696341",
+    "sameAs": ["https://instagram.com/38thst.coffee"],
+    "areaServed": ["Baltimore, MD", "Rockville, MD"],
+    "description": "Artisan micro-roastery focused on single-origin coffees. Roasted to order. Order via Instagram DM or text."
+  }
+  </script>
 
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,15 +45,14 @@
 
   <style>
     :root{
-      /* Luxury coffee shop palette */
-      --bg: #f2eadf;          /* luxe beige */
-      --paper: #fbf7f1;       /* ivory paper */
-      --ink: #1b1410;         /* espresso ink */
-      --muted: #4a3f36;       /* cocoa */
+      --bg: #f2eadf;
+      --paper: #fbf7f1;
+      --ink: #1b1410;
+      --muted: #4a3f36;
       --line: rgba(27,20,16,.18);
       --shadow: rgba(27,20,16,.06);
       --accent: #1b1410;
-      --accent2: #b08a5a;     /* soft gold */
+      --accent2: #b08a5a;
       --chip: rgba(27,20,16,.06);
     }
 
@@ -39,7 +70,6 @@
     a{color:inherit}
     .wrap{max-width:1180px;margin:0 auto;padding:28px 16px 64px}
 
-    /* Header */
     header{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap}
     .brand{display:flex;gap:14px;align-items:center;min-width:min(680px,100%)}
     .logo{
@@ -60,15 +90,23 @@
     }
     .brandText p{margin:8px 0 0;color:var(--muted);line-height:1.55;max-width:62ch}
 
+    .seoBlurb{
+      margin:10px 0 0;
+      color:rgba(27,20,16,.76);
+      font-size:13.5px;
+      line-height:1.6;
+      max-width:75ch;
+    }
+
     .cta{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
       align-items:center;
-      transform:none; /* default (mobile) */
+      transform:none;
     }
     @media (min-width: 900px){
-      .cta{ transform: translate(-80px, 26px); } /* desktop nudge */
+      .cta{ transform: translate(-80px, 26px); }
     }
 
     .btn{
@@ -91,11 +129,9 @@
     }
     .btn.primary:hover{background:#241b16}
 
-    /* Divider */
     .rule{height:1px;background:rgba(27,20,16,.14);margin:18px 0}
     .headerRule{max-width:1120px;margin:16px auto 6px;opacity:.9}
 
-    /* Cards */
     .grid{display:grid;grid-template-columns:1.25fr 1fr;gap:14px;margin-top:18px}
     @media (max-width: 900px){ .grid{grid-template-columns:1fr} .brand{min-width:100%} }
 
@@ -136,7 +172,6 @@
       font-size:13px
     }
 
-    /* Controls */
     .controls{
       display:flex;gap:10px;flex-wrap:wrap;align-items:center;
       margin-top:22px;margin-bottom:10px
@@ -156,7 +191,13 @@
     input:focus, select:focus{border-color:rgba(27,20,16,.35)}
     .hint{color:rgba(27,20,16,.68);font-size:13px;margin-top:6px}
 
-    /* Table shell */
+    .Scroll{
+      margin-top:10px;
+      font-weight:700;
+      color:rgba(27,20,16,.72);
+      letter-spacing:.01em;
+    }
+
     .tableShell{
       border:1px solid rgba(27,20,16,.18);
       border-radius:22px;
@@ -167,7 +208,6 @@
       margin-top:12px;
     }
 
-    /* Top scrollbar */
     .tableScrollTop{
       overflow-x:auto;
       overflow-y:hidden;
@@ -178,7 +218,6 @@
     }
     .tableScrollTopInner{height:1px;}
 
-    /* Bottom scroll area */
     .tableWrap{
       overflow:auto;
       -webkit-overflow-scrolling: touch;
@@ -198,18 +237,14 @@
       border-bottom:1px solid rgba(27,20,16,.14);
       color:rgba(27,20,16,.88);
       position:sticky; top:0; z-index:1;
-
       font-variant-caps: all-small-caps;
       letter-spacing:.14em;
       text-transform:none;
       font-weight:600;
       font-size:13px;
-
-      /* iOS table rendering safety */
       overflow:hidden;
     }
 
-    /* IMPORTANT: prevent mobile Safari "spill" into neighbor columns */
     th, td{ overflow:hidden; }
 
     tbody td{
@@ -217,15 +252,12 @@
       border-bottom:1px solid rgba(27,20,16,.12);
       vertical-align:top;
       color:rgba(27,20,16,.72);
-
-      /* wrapping so px widths work */
       white-space: normal;
       overflow-wrap: anywhere;
-      word-break: break-word; /* <-- iOS-friendly */
+      word-break: break-word;
       hyphens: auto;
     }
 
-    /* Extra safety for Tools column (slashes etc.) */
     thead th:nth-child(4),
     tbody td:nth-child(4){
       overflow-wrap:anywhere;
@@ -238,7 +270,6 @@
     .avail{white-space:nowrap}
     .nowrap{white-space:nowrap}
 
-    /* Mobile polish */
     @media (max-width: 520px){
       thead th, tbody td{ padding:10px 10px; }
       table{ font-size:13px; }
@@ -255,13 +286,17 @@
     <header>
       <div class="brand">
         <div class="logo" title="38th St Coffee">
-          <img src="logo.png" alt="38th St Coffee logo" />
+          <img src="logo.png" alt="38th St Coffee logo" width="92" height="92" />
         </div>
         <div class="brandText">
           <h1>38th St Coffee</h1>
           <p>
             Thank you so much for your love and support! We’re an artisan home roastery focused on single-origin coffees.
             Every bag is roasted to order — choose your roast level every time ❤️
+          </p>
+          <p class="seoBlurb">
+            Fresh roasted-to-order single-origin coffee for pickup in Baltimore (21211) and weekdays in 20850.
+            Order via Instagram DM or text — coffee flights available.
           </p>
         </div>
       </div>
@@ -317,7 +352,7 @@
       </select>
     </div>
     <div class="hint">Try: “espresso”, “V60”, “low-acid”, “chocolate”, or a country/region.</div>
-    <div class="Scroll"><strong>Scroll to your right for more info.</strong></div>
+    <div class="Scroll">Scroll to your right for more info.</div>
 
     <div class="tableShell">
       <div class="tableScrollTop" id="tableScrollTop">
@@ -352,285 +387,14 @@
   </div>
 
   <script>
-    const coffees = [
-      {
-        coffee: "New! Zambia Anaerobic Natural Kateshi Estate",
-        roast: "Light",
-        process: "Anaerobic natural",
-        tools: "V60/AeroPress",
-        flavor: "Kiwi; orange; white wine; crisp/tangy finish",
-        notes: "Bright and super unique: kiwi + orange with a crisp “white-wine” vibe and a tangy finish. Brew V60/AeroPress for the cleanest fruit.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Zambia — Mafinga Region, Kateshi Estate (AAA screen; RFA). Organic farming method (not certified)."
-      },
-      {
-        coffee: "New! Brazil Minas Gerais Peaberry",
-        roast: "Medium to Dark",
-        process: "Natural",
-        tools: "Espresso/Drip/French press",
-        flavor: "Brown sugar; milk chocolate; caramel; full body",
-        notes: "A peaberry forms when a coffee cherry grows one small, round seed instead of two flat-sided beans. Often roasts more evenly and can taste more concentrated or bright.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Brazil — Minas Gerais (COOPERCITRUS; ~3000 ft)"
-      },
-      {
-        coffee: "New! DR Congo Idjwi Island",
-        roast: "Light to Medium",
-        process: "Washed",
-        tools: "V60/Drip/AeroPress",
-        flavor: "Gingersnap cookie; molasses/cinnamon/ginger; lemondrop; toasty tea",
-        notes: "Interesting cup! Sweet-spiced “gingersnap cookie”: molasses sweetness with cinnamon + ginger and a bright pop.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "DR Congo — Lake Kivu, Idjwi Island (Bourbon; 4000+ ft)"
-      },
-      {
-        coffee: "New! Decaf Honduras Capucas (Water Process)",
-        roast: "Medium to Dark",
-        process: "Water Process (MWP)",
-        tools: "Drip/French press/Espresso",
-        flavor: "Sweet, full-flavored; “doesn’t taste decaf”",
-        notes: "All decaf is Mountain Water Process (MWP): chemical-free decaf using water + filtration to remove caffeine while keeping flavor.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Honduras (Capucas; Organic/FT)"
-      },
-      {
-        coffee: "New! Decaf Peru Organic (Mountain Water Process)",
-        roast: "Medium",
-        process: "Mountain Water Process (MWP)",
-        tools: "Drip/V60/Espresso",
-        flavor: "Lemon; sundried tomato; chocolate; darker chocolate",
-        notes: "Go with this one if you want a brighter cup of decaf coffee or espresso.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Peru (Organic/FT)"
-      },
-      {
-        coffee: "Rachel's favorite espresso beans: Sulawesi Toraja Organic",
-        roast: "Medium to Dark",
-        process: "Wet-hulled",
-        tools: "French press / Hario / Espresso",
-        flavor: "Chocolate, orange rind, black pepper, clean spice",
-        notes: "Makes a latte like hot cocoa. Push extraction for sweetness (slightly finer grind / hotter water). Clean, spicy chocolate with less “earth” than Sumatra.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Indonesia — Sulawesi (Toraja / Sapan Minanga)"
-      },
-      {
-        coffee: "Rachel's favorite pour over beans: Ethiopia Shantawene",
-        roast: "Light",
-        process: "Natural",
-        tools: "V60 / AeroPress / Iced",
-        flavor: "Strawberry & watermelon, citrus, milk chocolate",
-        notes: "Best as a bright, juicy filter. Use hotter water + slightly finer grind to bring out strawberry sweetness; great over ice.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Ethiopia — Sidamo (Shantawene Village / Daye Bensa)"
-      },
-      {
-        coffee: "Rachel's favorite decaf beans: Decaf Sumatra Organic MWP",
-        roast: "Medium",
-        process: "Decaf (Mountain Water)",
-        tools: "Drip / French press / Espresso",
-        flavor: "Rich, full-bodied, smooth decaf",
-        notes: "Surprisingly good flavor for a decaf! Use a slightly finer grind than caffeinated coffees to boost sweetness; shines in French press or as an espresso base for decaf lattes.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Indonesia — Sumatra (Decaf)"
-      },
-      {
-        coffee: "Customer favorite: Uganda Bugisu Mt. Elgon Organic",
-        roast: "Medium to Dark",
-        process: "Natural",
-        tools: "V60/Drip/French press/Espresso",
-        flavor: "Low-acid; raisin/fig/cocoa; brown sugar",
-        notes: "Great “bold but clean” choice; go darker for Sumatra-like notes, or medium for raisin-cookie, fig, and cocoa sweetness.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Uganda — Bugisu region, Mt. Elgon (women producers co-op; Organic/FT noted)"
-      },
-      {
-        coffee: "Costa Rica La Minita Geisha Honey",
-        roast: "Light to Medium",
-        process: "Honey and washed",
-        tools: "V60/Chemex/AeroPress",
-        flavor: "Floral + fruit; bright acidity; nice mouthfeel",
-        notes: "A geisha at this price range is a rare find! Rest more than 3 days after roasting for the best cup.",
-        availability: "Available",
-        price: "$18 for 4oz",
-        bag: "4 oz",
-        origin: "Costa Rica — Tarrazú, La Minita estate (Geisha)"
-      },
-      {
-        coffee: "7 Beans Espresso Blend",
-        roast: "Medium to Dark",
-        process: "Blend (varies by component)",
-        tools: "Espresso / Moka / Drip",
-        flavor: "Classic, balanced espresso; milk-friendly",
-        notes: "Cafe-style espresso, Rachel's favorite blend. Rich crema, moderate acidity, smooth body.",
-        availability: "Available",
-        price: "$16.00",
-        bag: "8 oz",
-        origin: "Blend Arabica"
-      },
-      {
-        coffee: "House Espresso Blend Universal",
-        roast: "Dark",
-        process: "Blend (varies by component)",
-        tools: "Espresso / Moka / Drip",
-        flavor: "Creamy chocolate, brown sugar, hazelnut, raisin, red fruit",
-        notes: "Great as espresso or milk drinks; forgiving extraction.",
-        availability: "Available",
-        price: "$16.00",
-        bag: "8 oz",
-        origin: "Blend Arabica"
-      },
-      {
-        coffee: "Colombia Tolima Organic",
-        roast: "Medium",
-        process: "Washed",
-        tools: "V60/AeroPress/Drip",
-        flavor: "Raspberry, strawberry, dried apricot, cane sugar, citrus zest",
-        notes: "Use hotter water and a slightly finer grind to amplify berry/apricot sweetness; best as a clean V60 or AeroPress.",
-        availability: "Available",
-        price: "$16.00",
-        bag: "8 oz",
-        origin: "Colombia — Tolima (Cordillera de Calarma; small family farms)"
-      },
-      {
-        coffee: "Ethiopia Yirgacheffe Organic (Adame Gorbota Coop)",
-        roast: "Light to Medium",
-        process: "Washed",
-        tools: "V60/Chemex/AeroPress/Iced filter",
-        flavor: "Blueberry, blackberry, lavender, caramel; subtle herbaceous",
-        notes: "Keep pours gentle and go a touch coarser to protect florals; excellent in V60/Chemex (or brew strong and pour over ice).",
-        availability: "Available",
-        price: "$16.00",
-        bag: "8 oz",
-        origin: "Ethiopia — Gedeo Zone, Wenago district"
-      },
-      {
-        coffee: "Tanzania Peaberry Plus Washed",
-        roast: "Light to Medium",
-        process: "Washed",
-        tools: "V60/AeroPress/Drip",
-        flavor: "Milk chocolate, pecan, red currant, chamomile, citrus",
-        notes: "Dial grind: slightly finer for currant/citrus pop, slightly coarser for milk-chocolate/pecan comfort.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Tanzania — Mbeya & Songwe (southern highlands)"
-      },
-      {
-        coffee: "Colombia Huila El Tiple Supremo EP",
-        roast: "Medium",
-        process: "Washed",
-        tools: "Drip/V60/Espresso",
-        flavor: "Caramel, citrus, red fruit, balanced sweetness",
-        notes: "Do-everything coffee: hotter/finer for citrus-red fruit V60, or pull as a balanced espresso for caramel sweetness.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Colombia — Huila (1,500–1,800 m)"
-      },
-      {
-        coffee: "Costa Rica Montaño Jaguar Anaerobic",
-        roast: "Light to Medium",
-        process: "Anaerobic fermentation",
-        tools: "V60/AeroPress/Espresso",
-        flavor: "Tropical fruit, red berries, wine-like sweetness, cocoa finish",
-        notes: "Use slightly cooler water and slower pours to keep winey notes clean; also makes a juicy modern espresso with cocoa-sweet finish.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Costa Rica — Tarrazú (Montaño Jaguar; 1,600–1,800 m)"
-      },
-      {
-        coffee: "Peru Amazonas Organic",
-        roast: "Medium",
-        process: "Washed",
-        tools: "Drip / V60 / Espresso",
-        flavor: "Chocolate, nutty, tangerine-citrus lift",
-        notes: "Low acidity; excellent for milk or as bold drip.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Peru — Amazonas"
-      },
-      {
-        coffee: "India Monsooned Malabar",
-        roast: "Medium to Dark",
-        process: "Monsooned (aged/monsoon)",
-        tools: "Espresso / Moka / French press / Cold brew",
-        flavor: "Thick creamy cocoa, savory earthy spice, low acid",
-        notes: "Best with hotter water and finer grind for clarity.",
-        availability: "Available",
-        price: "$19.00",
-        bag: "8 oz",
-        origin: "India — Malabar Coast (Monsooned)"
-      },
-      {
-        coffee: "Brazilian Santos",
-        roast: "Light to Medium",
-        process: "Natural",
-        tools: "Drip / French press / Espresso",
-        flavor: "Smooth low-acid cocoa, cinnamon-caramel, nutty",
-        notes: "Low-acid comfort cup—great for espresso blends or everyday drip; try slightly lower temp for extra smoothness.",
-        availability: "Available",
-        price: "$16.00",
-        bag: "8 oz",
-        origin: "Brazil — Santos"
-      },
-      {
-        coffee: "Costa Rica Red Honey La Pradera",
-        roast: "Light",
-        process: "Honey",
-        tools: "V60 / AeroPress / Drip",
-        flavor: "Berry sweetness, orange blossom, caramel",
-        notes: "Brew a touch cooler or slightly coarser if it tastes sharp; honey process loves gentle extraction for caramel/berry clarity.",
-        availability: "End of Season",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Costa Rica — La Pradera estate"
-      },
-      {
-        coffee: "Dominican Rep Barahona",
-        roast: "Medium",
-        process: "Washed",
-        tools: "Drip / V60 / French press",
-        flavor: "Raisin & black cherry, mellow clean finish",
-        notes: "Roast medium (don’t go too light or it can taste grassy); try slightly coarser grind for a super smooth, mellow finish.",
-        availability: "Limited",
-        price: "$16.00",
-        bag: "8 oz",
-        origin: "Dominican Republic — Barahona"
-      },
-      {
-        coffee: "Colombia Pink Bourbon Washed",
-        roast: "Light to Medium",
-        process: "Washed",
-        tools: "V60/Drip/AeroPress",
-        flavor: "Sweet + fruity; high complexity",
-        notes: "Use slightly finer grind and hotter water to bring out extra sweetness and fruit; best in V60/AeroPress.",
-        availability: "Limited",
-        price: "$16.00",
-        bag: "8 oz",
-        origin: "Colombia — Huila (Pink Bourbon microlot)"
-      }
-    ];
+    const coffees = [ /* ... keep your coffee array exactly as you already have it ... */ ];
 
+    // NOTE: paste your existing coffees array here (unchanged)
+    // I’m leaving it collapsed for readability in this message.
+  </script>
+
+  <script>
+    // ======= Your existing JS (unchanged) =======
     const rowsEl = document.getElementById("rows");
     const searchEl = document.getElementById("search");
     const availEl = document.getElementById("filterAvailability");
@@ -647,7 +411,6 @@
         .replaceAll('"',"&quot;").replaceAll("'","&#039;");
     }
 
-    // Insert soft break opportunities for Tools (wrap nicely at "/")
     function toolsWithBreaks(s){
       return escapeHtml(s).replaceAll("/", "/<wbr>");
     }
