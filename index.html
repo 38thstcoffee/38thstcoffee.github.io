@@ -62,17 +62,23 @@
     }
     .brandText p{margin:8px 0 0;color:var(--muted);line-height:1.55;max-width:62ch}
 
-    .cta{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:11px 16px;border-radius:999px;border:1px solid rgba(27,20,16,.16);
-      text-decoration:none;background:rgba(251,247,241,.70);
-      transition:transform .06s ease, background .2s ease, border-color .2s ease;
-      font-weight:600;
-      letter-spacing:.01em;
-      box-shadow: 0 10px 22px var(--shadow);
-      backdrop-filter: blur(10px);
-    }
+.cta{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  align-items:center;
+  transform: translate(-12px, 14px);
+}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:11px 16px;border-radius:999px;border:1px solid rgba(27,20,16,.16);
+  text-decoration:none;background:rgba(251,247,241,.70);
+  transition:transform .06s ease, background .2s ease, border-color .2s ease;
+  font-weight:600;
+  letter-spacing:.01em;
+  box-shadow: 0 10px 22px var(--shadow);
+  backdrop-filter: blur(10px);
+}
     .btn:hover{background:rgba(251,247,241,.82);border-color:rgba(27,20,16,.24)}
     .btn:active{transform:translateY(1px)}
     .btn.primary{
