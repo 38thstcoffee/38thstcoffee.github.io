@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -62,23 +61,27 @@
     }
     .brandText p{margin:8px 0 0;color:var(--muted);line-height:1.55;max-width:62ch}
 
-.cta{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  align-items:center;
-  transform: translate(-80px, 26px);
-}
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;
-  padding:11px 16px;border-radius:999px;border:1px solid rgba(27,20,16,.16);
-  text-decoration:none;background:rgba(251,247,241,.70);
-  transition:transform .06s ease, background .2s ease, border-color .2s ease;
-  font-weight:600;
-  letter-spacing:.01em;
-  box-shadow: 0 10px 22px var(--shadow);
-  backdrop-filter: blur(10px);
-}
+    .cta{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      transform:none; /* default: no nudge on small screens */
+    }
+    @media (min-width: 900px){
+      .cta{ transform: translate(-80px, 26px); } /* your nudge */
+    }
+
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:11px 16px;border-radius:999px;border:1px solid rgba(27,20,16,.16);
+      text-decoration:none;background:rgba(251,247,241,.70);
+      transition:transform .06s ease, background .2s ease, border-color .2s ease;
+      font-weight:600;
+      letter-spacing:.01em;
+      box-shadow: 0 10px 22px var(--shadow);
+      backdrop-filter: blur(10px);
+    }
     .btn:hover{background:rgba(251,247,241,.82);border-color:rgba(27,20,16,.24)}
     .btn:active{transform:translateY(1px)}
     .btn.primary{
@@ -154,11 +157,25 @@
     input:focus, select:focus{border-color:rgba(27,20,16,.35)}
     .hint{color:rgba(27,20,16,.68);font-size:13px;margin-top:6px}
 
+    /* Top horizontal scrollbar (mirror) */
+    .tableScrollTop{
+      overflow-x:auto;
+      overflow-y:hidden;
+      height:14px;
+      margin-top:12px;
+      border-radius:999px;
+      background: rgba(255,255,255,.35);
+      border:1px solid rgba(27,20,16,.12);
+    }
+    .tableScrollTopInner{
+      height:1px;
+    }
+
     /* Table */
     .tableWrap{
       border:1px solid rgba(27,20,16,.18);
       border-radius:22px;
-      overflow:auto; /* allow scroll on smaller screens */
+      overflow:auto; /* bottom scroll */
       background: rgba(251,247,241,.78);
       box-shadow: 0 14px 34px var(--shadow);
       backdrop-filter: blur(8px);
@@ -167,12 +184,9 @@
       width:100%;
       border-collapse:collapse;
       font-size:14px;
-      table-layout:fixed; 
+      table-layout:fixed; /* important for fixed column widths */
     }
 
-
-
-    
     thead th{
       text-align:left;
       padding:12px 12px;
@@ -199,6 +213,16 @@
     .price{white-space:nowrap;color:rgba(27,20,16,.95);font-weight:700}
     .avail{white-space:nowrap}
     .nowrap{white-space:nowrap}
+
+    /* FORCE Roast column narrow + ellipsis (prevents long roast text widening it) */
+    thead th:nth-child(2),
+    tbody td:nth-child(2){
+      width:50px;
+      max-width:50px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
 
     .footer{margin-top:18px;color:rgba(27,20,16,.68);font-size:13px;line-height:1.55}
     .small{font-size:12px}
@@ -276,8 +300,13 @@
     </div>
     <div class="hint">Try: “espresso”, “V60”, “low-acid”, “chocolate”, or a country/region.</div>
 
-    <section class="tableWrap" style="margin-top:12px">
-      <table>
+    <!-- TOP scrollbar -->
+    <div class="tableScrollTop" id="tableScrollTop">
+      <div class="tableScrollTopInner" id="tableScrollTopInner"></div>
+    </div>
+
+    <section class="tableWrap" id="tableWrap" style="margin-top:12px">
+      <table id="coffeeTable">
         <thead>
           <tr>
             <th style="width:200px">Coffee</th>
@@ -358,7 +387,7 @@
         process: "Mountain Water Process (MWP)",
         tools: "Drip/V60/Espresso",
         flavor: "Lemon; sundried tomato; chocolate; darker chocolate",
-        notes: "Go with this if you want a brighter decaf cup or decaf espresso.",
+        notes: "Go with this one if you want a brighter cup of decaf coffee or espresso.",
         availability: "Available",
         price: "$18.00",
         bag: "8 oz",
@@ -394,7 +423,7 @@
         process: "Decaf (Mountain Water)",
         tools: "Drip / French press / Espresso",
         flavor: "Rich, full-bodied, smooth decaf",
-        notes: "Surprisingly good flavor for decaf. Use slightly finer grind to boost sweetness; shines in French press or as espresso base for decaf lattes.",
+        notes: "Surprisingly good flavor for a decaf! Use a slightly finer grind than caffeinated coffees to boost sweetness; shines in French press or as an espresso base for decaf lattes.",
         availability: "Available",
         price: "$18.00",
         bag: "8 oz",
@@ -406,7 +435,7 @@
         process: "Natural",
         tools: "V60/Drip/French press/Espresso",
         flavor: "Low-acid; raisin/fig/cocoa; brown sugar",
-        notes: "Great “bold but clean” choice. Dark = Sumatra-like notes; medium = raisin-cookie, fig, cocoa sweetness.",
+        notes: "Great “bold but clean” choice; go darker for Sumatra-like notes, or medium for raisin-cookie, fig, and cocoa sweetness.",
         availability: "Available",
         price: "$18.00",
         bag: "8 oz",
@@ -418,7 +447,7 @@
         process: "Honey and washed",
         tools: "V60/Chemex/AeroPress",
         flavor: "Floral + fruit; bright acidity; nice mouthfeel",
-        notes: "A geisha at this price range is a rare find. Rest >3 days after roasting for the best cup.",
+        notes: "A geisha at this price range is a rare find! Rest more than 3 days after roasting for the best cup.",
         availability: "Available",
         price: "$18 for 4oz",
         bag: "4 oz",
@@ -454,7 +483,7 @@
         process: "Washed",
         tools: "V60/AeroPress/Drip",
         flavor: "Raspberry, strawberry, dried apricot, cane sugar, citrus zest",
-        notes: "Hotter water + slightly finer grind amplifies berry/apricot sweetness; best as clean V60 or AeroPress for a bright, candy-like cup.",
+        notes: "Use hotter water and a slightly finer grind to amplify berry/apricot sweetness; best as a clean V60 or AeroPress.",
         availability: "Available",
         price: "$16.00",
         bag: "8 oz",
@@ -478,7 +507,7 @@
         process: "Washed",
         tools: "V60/AeroPress/Drip",
         flavor: "Milk chocolate, pecan, red currant, chamomile, citrus",
-        notes: "Dial grind to taste—slightly finer for currant/citrus pop, slightly coarser for milk-chocolate/pecan comfort.",
+        notes: "Dial grind: slightly finer for currant/citrus pop, slightly coarser for milk-chocolate/pecan comfort.",
         availability: "Available",
         price: "$18.00",
         bag: "8 oz",
@@ -490,7 +519,7 @@
         process: "Washed",
         tools: "Drip/V60/Espresso",
         flavor: "Caramel, citrus, red fruit, balanced sweetness",
-        notes: "Do-everything coffee: hotter/finer for citrus-red fruit V60, or balanced espresso for caramel sweetness and easy milk drinks.",
+        notes: "Do-everything coffee: hotter/finer for citrus-red fruit V60, or pull as a balanced espresso for caramel sweetness.",
         availability: "Available",
         price: "$18.00",
         bag: "8 oz",
@@ -574,7 +603,7 @@
         process: "Washed",
         tools: "V60/Drip/AeroPress",
         flavor: "Sweet + fruity; high complexity",
-        notes: "Slightly finer grind + hotter water brings out extra sweetness and fruit; best in V60/AeroPress for a bright, complex cup.",
+        notes: "Use slightly finer grind and hotter water to bring out extra sweetness and fruit; best in V60/AeroPress.",
         availability: "Limited",
         price: "$16.00",
         bag: "8 oz",
@@ -586,6 +615,26 @@
     const searchEl = document.getElementById("search");
     const availEl = document.getElementById("filterAvailability");
     const roastEl = document.getElementById("filterRoast");
+
+    // Top scrollbar syncing
+    const tableWrap = document.getElementById("tableWrap");
+    const tableScrollTop = document.getElementById("tableScrollTop");
+    const tableScrollTopInner = document.getElementById("tableScrollTopInner");
+    const coffeeTable = document.getElementById("coffeeTable");
+
+    function syncTopScrollWidth(){
+      if(!tableWrap || !tableScrollTop || !tableScrollTopInner || !coffeeTable) return;
+      tableScrollTopInner.style.width = coffeeTable.scrollWidth + "px";
+      // keep top bar aligned with bottom bar
+      tableScrollTop.scrollLeft = tableWrap.scrollLeft;
+    }
+
+    if(tableWrap && tableScrollTop){
+      tableScrollTop.addEventListener("scroll", () => { tableWrap.scrollLeft = tableScrollTop.scrollLeft; });
+      tableWrap.addEventListener("scroll", () => { tableScrollTop.scrollLeft = tableWrap.scrollLeft; });
+      window.addEventListener("resize", syncTopScrollWidth);
+      window.addEventListener("load", syncTopScrollWidth);
+    }
 
     function escapeHtml(s){
       return (s ?? "").toString()
@@ -627,6 +676,9 @@
       if(filtered.length === 0){
         rowsEl.innerHTML = `<tr><td colspan="10" style="padding:16px;color:rgba(27,20,16,.68)">No matches. Try “espresso”, “V60”, “low-acid”, “chocolate”, or a country.</td></tr>`;
       }
+
+      // IMPORTANT: update top scrollbar width after rerender
+      syncTopScrollWidth();
     }
 
     searchEl.addEventListener("input", render);
