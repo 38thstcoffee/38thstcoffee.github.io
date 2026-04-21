@@ -281,6 +281,48 @@
     .avail{white-space:nowrap}
     .nowrap{white-space:nowrap}
 
+    .retiredSection{
+      margin-top:18px;
+    }
+    .retiredDetails{
+      background: rgba(251,247,241,.78);
+      border:1px solid rgba(27,20,16,.14);
+      border-radius:22px;
+      box-shadow: 0 12px 30px var(--shadow);
+      overflow:hidden;
+    }
+    .retiredSummary{
+      list-style:none;
+      cursor:pointer;
+      padding:18px 20px;
+      font-weight:700;
+      letter-spacing:.01em;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      background: rgba(255,255,255,.35);
+    }
+    .retiredSummary::-webkit-details-marker{display:none}
+    .retiredSummary::after{
+      content:"+";
+      font-size:22px;
+      line-height:1;
+      color:rgba(27,20,16,.75);
+    }
+    .retiredDetails[open] .retiredSummary::after{
+      content:"−";
+    }
+    .retiredBody{
+      padding:0 20px 20px;
+    }
+    .retiredNote{
+      color:rgba(27,20,16,.68);
+      font-size:13px;
+      margin:14px 0 14px;
+      line-height:1.6;
+    }
+
     @media (max-width: 520px){
       thead th, tbody td{ padding:10px 10px; }
       table{ font-size:13px; }
@@ -391,6 +433,39 @@
       </section>
     </div>
 
+    <section class="retiredSection">
+      <details class="retiredDetails">
+        <summary class="retiredSummary">Retired for now beans</summary>
+        <div class="retiredBody">
+          <p class="retiredNote">
+            These beans are not currently in the active lineup, but may come back later.
+          </p>
+
+          <div class="tableShell">
+            <section class="tableWrap">
+              <table id="retiredCoffeeTable">
+                <thead>
+                  <tr>
+                    <th style="width:200px">Coffee</th>
+                    <th style="width:100px">Roast</th>
+                    <th style="width:100px">Process</th>
+                    <th style="width:100px">Tools</th>
+                    <th style="width:160px">Flavor Profile</th>
+                    <th style="width:360px">Notes</th>
+                    <th style="width:120px">Availability</th>
+                    <th style="width:95px">Price</th>
+                    <th style="width:90px">Bag</th>
+                    <th style="width:260px">Origin</th>
+                  </tr>
+                </thead>
+                <tbody id="retiredRows"></tbody>
+              </table>
+            </section>
+          </div>
+        </div>
+      </details>
+    </section>
+
     <div class="footer">
       <div><strong>Questions?</strong> DM on Instagram or text anytime.</div>
       <div class="small">If something sells out, I’ll confirm via DM/text.</div>
@@ -446,18 +521,6 @@
         price: "$18.00",
         bag: "8 oz",
         origin: "Honduras (Capucas; Organic/FT)"
-      },
-      {
-        coffee: "New! Decaf Peru Organic (Mountain Water Process)",
-        roast: "Medium",
-        process: "Mountain Water Process (MWP)",
-        tools: "Drip/V60/Espresso",
-        flavor: "Lemon; sundried tomato; chocolate; darker chocolate",
-        notes: "Go with this one if you want a brighter cup of decaf coffee or espresso.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Peru (Organic/FT)"
       },
       {
         coffee: "Rachel's favorite espresso beans: Sulawesi Toraja Organic",
@@ -628,18 +691,6 @@
         origin: "India — Malabar Coast (Monsooned)"
       },
       {
-        coffee: "Brazilian Santos",
-        roast: "Light to Medium",
-        process: "Natural",
-        tools: "Drip / French press / Espresso",
-        flavor: "Smooth low-acid cocoa, cinnamon-caramel, nutty",
-        notes: "Low-acid comfort cup—great for espresso blends or everyday drip; try slightly lower temp for extra smoothness.",
-        availability: "Available",
-        price: "$16.00",
-        bag: "8 oz",
-        origin: "Brazil — Santos"
-      },
-      {
         coffee: "Costa Rica Red Honey La Pradera",
         roast: "Light",
         process: "Honey",
@@ -662,7 +713,10 @@
         price: "$16.00",
         bag: "8 oz",
         origin: "Dominican Republic — Barahona"
-      },
+      }
+    ];
+
+    const retiredCoffees = [
       {
         coffee: "Colombia Pink Bourbon Washed",
         roast: "Light to Medium",
@@ -670,15 +724,39 @@
         tools: "V60/Drip/AeroPress",
         flavor: "Sweet + fruity; high complexity",
         notes: "Use slightly finer grind and hotter water to bring out extra sweetness and fruit; best in V60/AeroPress.",
-        availability: "Limited",
+        availability: "Retired for now",
         price: "$16.00",
         bag: "8 oz",
         origin: "Colombia — Huila (Pink Bourbon microlot)"
+      },
+      {
+        coffee: "Brazilian Santos",
+        roast: "Light to Medium",
+        process: "Natural",
+        tools: "Drip / French press / Espresso",
+        flavor: "Smooth low-acid cocoa, cinnamon-caramel, nutty",
+        notes: "Low-acid comfort cup—great for espresso blends or everyday drip; try slightly lower temp for extra smoothness.",
+        availability: "Retired for now",
+        price: "$16.00",
+        bag: "8 oz",
+        origin: "Brazil — Santos"
+      },
+      {
+        coffee: "New! Decaf Peru Organic (Mountain Water Process)",
+        roast: "Medium",
+        process: "Mountain Water Process (MWP)",
+        tools: "Drip/V60/Espresso",
+        flavor: "Lemon; sundried tomato; chocolate; darker chocolate",
+        notes: "Go with this one if you want a brighter cup of decaf coffee or espresso.",
+        availability: "Retired for now",
+        price: "$18.00",
+        bag: "8 oz",
+        origin: "Peru (Organic/FT)"
       }
     ];
 
-    // ======= Your existing JS (unchanged) =======
     const rowsEl = document.getElementById("rows");
+    const retiredRowsEl = document.getElementById("retiredRows");
     const searchEl = document.getElementById("search");
     const availEl = document.getElementById("filterAvailability");
     const roastEl = document.getElementById("filterRoast");
@@ -749,10 +827,31 @@
       syncTopScrollWidth();
     }
 
+    function renderRetired(){
+      if(!retiredRowsEl) return;
+
+      retiredRowsEl.innerHTML = retiredCoffees.map(c => `
+        <tr>
+          <td><div class="coffeeName">${escapeHtml(c.coffee)}</div></td>
+          <td>${escapeHtml(c.roast)}</td>
+          <td>${escapeHtml(c.process)}</td>
+          <td>${toolsWithBreaks(c.tools)}</td>
+          <td>${escapeHtml(c.flavor)}</td>
+          <td>${escapeHtml(c.notes)}</td>
+          <td class="avail">${escapeHtml(c.availability)}</td>
+          <td class="price">${escapeHtml(c.price)}</td>
+          <td class="nowrap">${escapeHtml(c.bag)}</td>
+          <td>${escapeHtml(c.origin)}</td>
+        </tr>
+      `).join("");
+    }
+
     searchEl.addEventListener("input", render);
     availEl.addEventListener("change", render);
     roastEl.addEventListener("change", render);
+
     render();
+    renderRetired();
   </script>
 </body>
 </html>
