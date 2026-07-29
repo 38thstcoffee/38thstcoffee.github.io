@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -219,6 +220,64 @@
       margin-top:12px;
     }
 
+    .regionTables{
+      display:grid;
+      gap:34px;
+      margin-top:22px;
+      width:100%;
+      min-width:0;
+    }
+
+    .regionGroup{
+      scroll-margin-top:20px;
+      width:100%;
+      min-width:0;
+      max-width:100%;
+    }
+
+    .regionGroup .tableShell{
+      width:100%;
+      min-width:0;
+      max-width:100%;
+      box-sizing:border-box;
+    }
+
+    .regionGroup .tableWrap{
+      width:100%;
+      min-width:0;
+      max-width:100%;
+    }
+
+    .regionHeader{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:10px;
+      padding:0 4px;
+    }
+
+    .regionHeader h2{
+      margin:0;
+      font-size:clamp(16px, 2vw, 23px);
+      letter-spacing:-.02em;
+      color:rgba(27,20,16,.95);
+    }
+
+    .regionCount{
+      color:rgba(27,20,16,.62);
+      font-size:13px;
+      white-space:nowrap;
+    }
+
+    .noMatches{
+      padding:22px;
+      border:1px solid rgba(27,20,16,.14);
+      border-radius:18px;
+      color:rgba(27,20,16,.68);
+      background:rgba(251,247,241,.68);
+    }
+
     .tableScrollTop{
       overflow-x:auto;
       overflow-y:hidden;
@@ -377,7 +436,7 @@
       <section class="card callout compact">
         <h2>Coffee Flights</h2>
         <p style="margin:0">
-          <strong>New: Coffee Flights — 4 × 3 oz</strong> of our selection of beans for <strong>$22</strong>.
+          <strong>New: Coffee Flights — 4 × 3 oz</strong> of our selection of beans for <strong>$24</strong>.
         </p>
         <div class="chips">
           <span class="chip">Tasting</span>
@@ -405,33 +464,9 @@
       </select>
     </div>
     <div class="hint">Try: "espresso", "V60", "low-acid", "chocolate", or a country/region.</div>
-    <div class="Scroll">Scroll to your right for more info.</div>
+    <div class="Scroll">Each region has its own table. Scroll right inside a table for more info.</div>
 
-    <div class="tableShell">
-      <div class="tableScrollTop" id="tableScrollTop">
-        <div class="tableScrollTopInner" id="tableScrollTopInner"></div>
-      </div>
-
-      <section class="tableWrap" id="tableWrap">
-        <table id="coffeeTable">
-          <thead>
-            <tr>
-              <th style="width:200px">Coffee</th>
-              <th style="width:100px">Roast</th>
-              <th style="width:100px">Process</th>
-              <th style="width:100px">Tools</th>
-              <th style="width:160px">Flavor Profile</th>
-              <th style="width:360px">Notes</th>
-              <th style="width:100px">Availability</th>
-              <th style="width:95px">Price</th>
-              <th style="width:90px">Bag</th>
-              <th style="width:260px">Origin</th>
-            </tr>
-          </thead>
-          <tbody id="rows"></tbody>
-        </table>
-      </section>
-    </div>
+    <div class="regionTables" id="regionTables"></div>
 
     <section class="retiredSection">
       <details class="retiredDetails">
@@ -619,18 +654,6 @@ const coffees = [
     origin: "Zambia — Mafinga Region, Kateshi Estate (AAA screen; RFA). Organic farming method, not certified."
   },
   {
-    coffee: "Costa Rica La Minita Geisha Honey",
-    roast: "Light to Medium",
-    process: "Honey and washed",
-    tools: "V60/Chemex/AeroPress",
-    flavor: "Floral + fruit; bright acidity; nice mouthfeel",
-    notes: "A geisha at this price range is a rare find! Rest more than 3 days after roasting for the best cup.",
-    availability: "Available",
-    price: "$19 for 4oz",
-    bag: "4 oz",
-    origin: "Costa Rica — Tarrazú, La Minita estate (Geisha)."
-  },
-  {
     coffee: "Costa Rica La Pradera Washed",
     roast: "Light",
     process: "Washed",
@@ -665,18 +688,6 @@ const coffees = [
     price: "$19.00",
     bag: "8 oz",
     origin: "Costa Rica — La Pradera estate."
-  },
-  {
-    coffee: "Costa Rica Rio Negro Natural",
-    roast: "Light to Medium",
-    process: "Natural",
-    tools: "V60/AeroPress/Espresso",
-    flavor: "Brown sugar; cherry; strawberry; jammy fruit; cocoa; heavy body",
-    notes: "A sweet, fruit-forward Costa Rica natural from Rio Negro Estate. It starts with brown sugar and moves into cherry and strawberry sweetness, with heavy body and a subtle fermented complexity in the background. Roast lightly but a little longer than a natural Ethiopia; it can also be taken into second crack for espresso.",
-    availability: "Available",
-    price: "$19.00",
-    bag: "8 oz",
-    origin: "Costa Rica — Rio Negro Estate, Coto Brus region. Rainforest Alliance certified; sustainable and organic farming practices."
   },
   {
     coffee: "Organic Guatemala FECCEG Honey",
@@ -893,11 +904,47 @@ const coffees = [
     price: "$18.00",
     bag: "8 oz",
     origin: "Blend Arabica."
+  },
+  {
+    coffee: "Easy Does It Half-Caf Blend",
+    roast: "Medium",
+    process: "50/50 blend; washed + water-process decaf",
+    tools: "Drip / French Press / Espresso",
+    flavor: "Milk chocolate; brown sugar; toasted almond; soft fruit",
+    notes: "Full coffee flavor with a gentler lift. This smooth, balanced blend combines 50% caffeinated coffee with 50% water-process decaf for an easygoing cup that works beautifully in the morning or afternoon. Expect about half the caffeine of regular coffee, though the exact amount varies by brewing method.",
+    availability: "Available",
+    price: "$18.00",
+    bag: "8 oz",
+    origin: "Blend Arabica — 50% caffeinated coffee / 50% water-process decaf."
   }
 ];
 
 
     const retiredCoffees = [
+      {
+        coffee: "Costa Rica La Minita Geisha Honey",
+        roast: "Light to Medium",
+        process: "Honey and washed",
+        tools: "V60/Chemex/AeroPress",
+        flavor: "Floral + fruit; bright acidity; nice mouthfeel",
+        notes: "A geisha at this price range is a rare find! Rest more than 3 days after roasting for the best cup.",
+        availability: "Retired for now",
+        price: "$19 for 4oz",
+        bag: "4 oz",
+        origin: "Costa Rica — Tarrazú, La Minita estate (Geisha)."
+      },
+      {
+        coffee: "Costa Rica Rio Negro Natural",
+        roast: "Light to Medium",
+        process: "Natural",
+        tools: "V60/AeroPress/Espresso",
+        flavor: "Brown sugar; cherry; strawberry; jammy fruit; cocoa; heavy body",
+        notes: "A sweet, fruit-forward Costa Rica natural from Rio Negro Estate. It starts with brown sugar and moves into cherry and strawberry sweetness, with heavy body and a subtle fermented complexity in the background. Roast lightly but a little longer than a natural Ethiopia; it can also be taken into second crack for espresso.",
+        availability: "Retired for now",
+        price: "$19.00",
+        bag: "8 oz",
+        origin: "Costa Rica — Rio Negro Estate, Coto Brus region. Rainforest Alliance certified; sustainable and organic farming practices."
+      },
       {
         coffee: "Colombia Pink Bourbon Washed",
         roast: "Light to Medium",
@@ -1070,16 +1117,11 @@ const coffees = [
      
     ];
 
-    const rowsEl = document.getElementById("rows");
+    const regionTablesEl = document.getElementById("regionTables");
     const retiredRowsEl = document.getElementById("retiredRows");
     const searchEl = document.getElementById("search");
     const availEl = document.getElementById("filterAvailability");
     const roastEl = document.getElementById("filterRoast");
-
-    const tableWrap = document.getElementById("tableWrap");
-    const tableScrollTop = document.getElementById("tableScrollTop");
-    const tableScrollTopInner = document.getElementById("tableScrollTopInner");
-    const coffeeTable = document.getElementById("coffeeTable");
 
     function escapeHtml(s){
       return (s ?? "").toString()
@@ -1091,18 +1133,85 @@ const coffees = [
       return escapeHtml(s).replaceAll("/", "/<wbr>");
     }
 
-    function syncTopScrollWidth(){
-      if(!tableWrap || !tableScrollTop || !tableScrollTopInner || !coffeeTable) return;
-      tableScrollTopInner.style.width = coffeeTable.scrollWidth + "px";
-      tableScrollTop.scrollLeft = tableWrap.scrollLeft;
+    const regions = [
+      { key:"africa", label:"African", countries:["DR Congo","Ethiopia","Kenya","Rwanda","Tanzania","Uganda","Zambia"] },
+      { key:"central-america", label:"Central America", countries:["Costa Rica","Dominican Republic","Guatemala","Honduras","Mexico"] },
+      { key:"south-america", label:"South America", countries:["Bolivia","Brazil","Colombia","Peru"] },
+      { key:"asia-pacific", label:"Asia Pacific", countries:["East Timor","India","Indonesia","Papua New Guinea"] },
+      { key:"blend", label:"Blend", countries:["Blend"] },
+      { key:"decaf", label:"Decaf", countries:[] }
+    ];
+
+    function countryOf(c){
+      const country = (c.origin || "").split("—")[0].trim();
+      return country.startsWith("Blend") ? "Blend" : country;
     }
 
-    if(tableWrap && tableScrollTop){
-      tableScrollTop.addEventListener("scroll", () => { tableWrap.scrollLeft = tableScrollTop.scrollLeft; });
-      tableWrap.addEventListener("scroll", () => { tableScrollTop.scrollLeft = tableWrap.scrollLeft; });
-      window.addEventListener("resize", syncTopScrollWidth);
-      window.addEventListener("load", syncTopScrollWidth);
+    function regionFor(c){
+      const country = countryOf(c);
+      if(country === "Blend") return "blend";
+
+      const decafText = [c.coffee, c.process].join(" ").toLowerCase();
+      if(decafText.includes("decaf")) return "decaf";
+
+      return regions.find(region => region.countries.includes(country))?.key || "asia-pacific";
     }
+
+    function tableHeader(){
+      return `
+        <thead>
+          <tr>
+            <th style="width:200px">Coffee</th>
+            <th style="width:100px">Roast</th>
+            <th style="width:100px">Process</th>
+            <th style="width:100px">Tools</th>
+            <th style="width:160px">Flavor Profile</th>
+            <th style="width:360px">Notes</th>
+            <th style="width:100px">Availability</th>
+            <th style="width:95px">Price</th>
+            <th style="width:90px">Bag</th>
+            <th style="width:260px">Origin</th>
+          </tr>
+        </thead>`;
+    }
+
+    function coffeeRows(items){
+      return items.map(c => `
+        <tr>
+          <td><div class="coffeeName">${escapeHtml(c.coffee)}</div></td>
+          <td>${escapeHtml(c.roast)}</td>
+          <td>${escapeHtml(c.process)}</td>
+          <td>${toolsWithBreaks(c.tools)}</td>
+          <td>${escapeHtml(c.flavor)}</td>
+          <td>${escapeHtml(c.notes)}</td>
+          <td class="avail">${escapeHtml(c.availability)}</td>
+          <td class="price">${escapeHtml(c.price)}</td>
+          <td class="nowrap">${escapeHtml(c.bag)}</td>
+          <td>${escapeHtml(c.origin)}</td>
+        </tr>
+      `).join("");
+    }
+
+    function syncRegionScrollbars(){
+      document.querySelectorAll(".regionGroup .tableShell").forEach(shell => {
+        const topScroll = shell.querySelector(".tableScrollTop");
+        const topScrollInner = shell.querySelector(".tableScrollTopInner");
+        const tableWrap = shell.querySelector(".tableWrap");
+        const table = shell.querySelector("table");
+        if(!topScroll || !topScrollInner || !tableWrap || !table) return;
+
+        topScrollInner.style.width = table.scrollWidth + "px";
+        topScroll.scrollLeft = tableWrap.scrollLeft;
+        topScroll.addEventListener("scroll", () => {
+          tableWrap.scrollLeft = topScroll.scrollLeft;
+        });
+        tableWrap.addEventListener("scroll", () => {
+          topScroll.scrollLeft = tableWrap.scrollLeft;
+        });
+      });
+    }
+
+    window.addEventListener("resize", syncRegionScrollbars);
 
     function render(){
       const q = (searchEl.value || "").trim().toLowerCase();
@@ -1120,26 +1229,36 @@ const coffees = [
         return matchesSearch && matchesAvail && matchesRoast;
       });
 
-      rowsEl.innerHTML = filtered.map(c => `
-        <tr>
-          <td><div class="coffeeName">${escapeHtml(c.coffee)}</div></td>
-          <td>${escapeHtml(c.roast)}</td>
-          <td>${escapeHtml(c.process)}</td>
-          <td>${toolsWithBreaks(c.tools)}</td>
-          <td>${escapeHtml(c.flavor)}</td>
-          <td>${escapeHtml(c.notes)}</td>
-          <td class="avail">${escapeHtml(c.availability)}</td>
-          <td class="price">${escapeHtml(c.price)}</td>
-          <td class="nowrap">${escapeHtml(c.bag)}</td>
-          <td>${escapeHtml(c.origin)}</td>
-        </tr>
-      `).join("");
-
       if(filtered.length === 0){
-        rowsEl.innerHTML = `<tr><td colspan="10" style="padding:16px;color:rgba(27,20,16,.68)">No matches. Try "espresso", "V60", "low-acid", "chocolate", or a country.</td></tr>`;
+        regionTablesEl.innerHTML = `<div class="noMatches">No matches. Try "espresso", "V60", "low-acid", "chocolate", or a country.</div>`;
+        return;
       }
 
-      syncTopScrollWidth();
+      regionTablesEl.innerHTML = regions.map(region => {
+        const items = filtered.filter(c => regionFor(c) === region.key);
+        if(!items.length) return "";
+
+        return `
+          <section class="regionGroup" id="${region.key}">
+            <div class="regionHeader">
+              <h2>${region.label}</h2>
+              <span class="regionCount">${items.length} ${items.length === 1 ? "coffee" : "coffees"}</span>
+            </div>
+            <div class="tableShell">
+              <div class="tableScrollTop" aria-label="Horizontal table scroll">
+                <div class="tableScrollTopInner"></div>
+              </div>
+              <section class="tableWrap" aria-label="${region.label} coffees">
+                <table>
+                  ${tableHeader()}
+                  <tbody>${coffeeRows(items)}</tbody>
+                </table>
+              </section>
+            </div>
+          </section>`;
+      }).join("");
+
+      requestAnimationFrame(syncRegionScrollbars);
     }
 
     function renderRetired(){
