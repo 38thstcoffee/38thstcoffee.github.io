@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -403,7 +402,7 @@
         <div class="brandText">
           <h1>38th St Coffee</h1>
           <p>
-            Thank you so much for your love and support! We’re an artisan home roastery focused on single-origin coffees.
+            Thank you so much for your love and support! We're an artisan home roastery focused on single-origin coffees.
             Every bag is roasted to order — choose your roast level every time ❤️
           </p>
           <p class="seoBlurb">
@@ -503,13 +502,121 @@
 
     <div class="footer">
       <div><strong>Questions?</strong> DM on Instagram or text anytime.</div>
-      <div class="small">If something sells out, I’ll confirm via DM/text.</div>
+      <div class="small">If something sells out, I'll confirm via DM/text.</div>
     </div>
   </div>
 
 <script>
 const coffees = [
 
+  {
+    coffee: "New! Ethiopia Yirgacheffe Halo Bariti",
+    roast: "Light",
+    process: "Natural",
+    tools: "V60/Chemex/AeroPress/Iced filter",
+    flavor: "Blueberry; cocoa; baked berry; creamy; aromatic",
+    notes: "Grown by a young fair trade organic co-op formed in 2012, farming some of the highest ground in Ethiopia (4,800–6,800 ft) on a previously undeveloped stretch just south of Yirgacheffe, where wild heirloom varietals still grow naturally. Roasted light, this natural-process coffee is thicker-bodied and less acidic than a typical natural Ethiopia, trading the usual citrus for blueberry and cocoa, with a smooth, aromatic sweetness and no earthiness.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Ethiopia — south of Yirgacheffe, Halo Bariti co-op (est. 2012); 4,800–6,800 ft. Fair Trade and Organic certified."
+  },
+  {
+    coffee: "New! Ethiopia Yirgacheffe Koke Honey",
+    roast: "Light",
+    process: "Honey",
+    tools: "V60/AeroPress/Espresso",
+    flavor: "Blueberry; honey blossom; honeydew; chocolate; bright",
+    notes: "An uncommon honey-processed Yirgacheffe from the Koke co-op in Gedeb, sorted meticulously to Grade 1 status. Roasted light with gentle, gradual heat, it comes out flawlessly clean with blueberry and honey blossom up front, while honeydew and chocolate emerge more or less depending on whether the next roast goes a touch lighter or darker.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Ethiopia — Gedeo Zone, Gedeb; Koke Co-op; Grade 1."
+  },
+  {
+    coffee: "New! Ethiopia Yirgacheffe Getaneh Girma Natural",
+    roast: "Light",
+    process: "Natural",
+    tools: "V60/AeroPress/Chemex",
+    flavor: "Apricot; plum; blueberry; floral; chocolate undertone",
+    notes: "A single-farmer microlot from Getaneh Girma's farm in Idido, Yirgacheffe (about 1,980 m), where he's grown coffee his whole life. This natural-process lot brings the classic Idido combination of stone fruit and berries with a soft floral lift and a hint of chocolate underneath.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Ethiopia — Idido, Yirgacheffe; Getaneh Girma's farm; ~1,980 m."
+  },
+  {
+    coffee: "New! El Salvador Honey Las Ranas",
+    roast: "Light to Medium",
+    process: "Honey / Pulped Natural",
+    tools: "V60/Drip/AeroPress",
+    flavor: "Strawberry; cherry; juicy plum; hibiscus; creamy sweetness",
+    notes: "From Cerro Las Ranas, an estate planted in fresh volcanic soil beside a frog-filled lagoon, this honey-process coffee is sweet and widely approachable. Strawberry and cherry sit in a creamy body with juicy plum and soft floral brightness, finishing smooth and pleasantly fruit-forward.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "El Salvador — Cerro Las Ranas Estate; honey-process microlot grown on volcanic soil; Rainforest Alliance certified."
+  },
+  {
+    coffee: "New! Mexico Chiapas Rosalba Cifuentes",
+    roast: "Medium",
+    process: "Washed",
+    tools: "Drip/V60/French Press/Espresso",
+    flavor: "Toasted marshmallow; creamy sweetness; lemon; melon; apple",
+    notes: "A single-variety Bourbon lot from Rosalba Cifuentes Tovia's family farm in high-grown Bella Vista, Chiapas. Lemon, melon, and apple give the lighter profile a delicate sparkle, while a medium expression becomes creamy, sweet, and reminiscent of toasted marshmallow.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Mexico — Bella Vista, Chiapas; Rosalba Cifuentes family lot; single-varietal Bourbon; 4,000–5,000 ft."
+  },
+  {
+    coffee: "New! El Salvador Pacamara Natural",
+    roast: "Light",
+    process: "Natural",
+    tools: "V60/AeroPress/Drip",
+    flavor: "Candy-like cherry; orange; cranberry; light chocolate",
+    notes: "A sundried natural microlot of the large, slender Pacamara varietal from Finca Noruega, a farm that grows almost exclusively Pacamara and processes it several different ways. Roasted light — just barely out of first cracks — it turns out candy-sweet with cherry (almost like a gummy candy), orange, cranberry, and a whisper of chocolate underneath.",
+    availability: "Available",
+    price: "$24.00",
+    bag: "8 oz",
+    origin: "El Salvador — Finca Noruega. US Arrival: September 2026."
+  },
+  {
+    coffee: "New! Java Dadar",
+    roast: "Medium to Dark",
+    process: "Washed",
+    tools: "Drip/French Press/Espresso",
+    flavor: "Sweet chocolate; smooth body; molasses; spicy finish (dark roast)",
+    notes: "Grown by a private co-op in Taman Dadar ('Flower Garden'), on Java's eastern side, this organic and Rainforest Alliance certified coffee is one of the priciest lots the island produces. A medium roast is smooth, sweet, and lightly chocolatey; pushed darker, it turns into a fun, spicy, molasses-sweet cup with a thick, satisfying body — a distinctive alternative to a classic Sumatra dark roast.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Indonesia — Java Island, Taman Dadar co-op, villages of Curah Tatal and Kayumas. Organic and Rainforest Alliance certified. US Arrival September 2026."
+  },
+  {
+    coffee: "New! Sumatra Gayo Ribang Natural",
+    roast: "Light to Medium",
+    process: "Natural",
+    tools: "V60/AeroPress/Espresso",
+    flavor: "Cherry; blackberry; raspberry; fig; slightly herbal",
+    notes: "A rare fully natural-process coffee out of Sumatra — most Indonesian coffee is wet-hulled and earthy, but this well-sorted lot from the Gayo people of Ribang skips that step entirely. The result is juicy and fruit-forward, with great crema when pulled as espresso and cherry, blackberry, raspberry, and fig without any sour or smoky notes.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Indonesia — Gayo region, Ribang. Arrival Sept 2026."
+  },
+  {
+    coffee: "New! Sumatra Aceh Takengon",
+    roast: "Dark",
+    process: "Wet-hulled",
+    tools: "French Press/Espresso/Drip",
+    flavor: "Root beer; sage; oak; black pepper; cedar; light amaretto",
+    notes: "Grown by the fair trade organic Kopsen Sepakat Gergung co-op near Lake Toba in Aceh and milled at Jagong, known for being picky about ripeness. Cleaner and more complex than a typical Mandheling, it holds up to a true Italian-style dark roast, developing savory pine, dark chocolate, and nutmeg, with amaretto and light berry notes at slightly lighter roasts.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Indonesia — Aceh, Takengon village near Lake Toba; Kopsen Sepakat Gergung co-op. Organic and Fair Trade certified. US Arrival September 2026."
+  },
 
  {
     coffee: "DR Congo Idjwi Island",
@@ -583,7 +690,7 @@ const coffees = [
     availability: "Available",
     price: "$19.00",
     bag: "8 oz",
-    origin: "Uganda — Western Uganda / Bukonzo, near the Rwenzori Mountains. Fair Trade and Organic certified women’s co-op."
+    origin: "Uganda — Western Uganda / Bukonzo, near the Rwenzori Mountains. Fair Trade and Organic certified women's co-op."
   },
  
   {
@@ -598,42 +705,6 @@ const coffees = [
     bag: "8 oz",
     origin: "Zambia — Mafinga Region, Kateshi Estate (AAA screen; RFA). Organic farming method, not certified."
   },
- {
-  coffee: "New! Honduras Finca Las Moras Honey",
-  roast: "Light to Medium",
-  process: "Honey",
-  tools: "V60/Drip/Espresso",
-  flavor: "Apricot; brown sugar; rose; creamy chocolate",
-  notes: "This honey-process lot comes from third-generation producer Heber Hernan Avila at Finca Las Moras, a farm named for the area's blackberries. Apricot, brown sugar, and rose lead the cup; a deeper profile becomes creamy and chocolatey while retaining a gentle fruit acidity.",
-  availability: "Available",
-  price: "$19.00",
-  bag: "8 oz",
-  origin: "Honduras — Finca Las Moras; produced by third-generation farmer Heber Hernan Avila."
-},
-{
-  coffee: "New! El Salvador Honey Las Ranas",
-  roast: "Light to Medium",
-  process: "Honey / Pulped Natural",
-  tools: "V60/Drip/AeroPress",
-  flavor: "Strawberry; cherry; juicy plum; hibiscus; creamy sweetness",
-  notes: "From Cerro Las Ranas, an estate planted in fresh volcanic soil beside a frog-filled lagoon, this honey-process coffee is sweet and widely approachable. Strawberry and cherry sit in a creamy body with juicy plum and soft floral brightness, finishing smooth and pleasantly fruit-forward.",
-  availability: "Available",
-  price: "$19.00",
-  bag: "8 oz",
-  origin: "El Salvador — Cerro Las Ranas Estate; honey-process microlot grown on volcanic soil; Rainforest Alliance certified."
-},
-{
-  coffee: "New! Mexico Chiapas Rosalba Cifuentes",
-  roast: "Medium",
-  process: "Washed",
-  tools: "Drip/V60/French Press/Espresso",
-  flavor: "Toasted marshmallow; creamy sweetness; lemon; melon; apple",
-  notes: "A single-variety Bourbon lot from Rosalba Cifuentes Tovia's family farm in high-grown Bella Vista, Chiapas. Lemon, melon, and apple give the lighter profile a delicate sparkle, while a medium expression becomes creamy, sweet, and reminiscent of toasted marshmallow.",
-  availability: "Available",
-  price: "$19.00",
-  bag: "8 oz",
-  origin: "Mexico — Bella Vista, Chiapas; Rosalba Cifuentes family lot; single-varietal Bourbon; 4,000–5,000 ft."
-},
   {
     coffee: "Costa Rica La Pradera Washed",
     roast: "Light",
@@ -676,7 +747,7 @@ const coffees = [
     roast: "Medium to Dark",
     process: "Water Process (MWP)",
     tools: "Drip/French press/Espresso",
-    flavor: "Sweet, full-flavored; doesn’t taste decaf",
+    flavor: "Sweet, full-flavored; doesn't taste decaf",
     notes: "An organic and Fair Trade decaf from Capucas with the clean sweetness and full flavor of a classic Central American coffee. The water-based decaffeination process preserves a satisfying body and familiar coffee character, so the cup tastes smooth and complete rather than obviously decaffeinated.",
     availability: "Limited",
     price: "$19.00",
@@ -859,6 +930,18 @@ const coffees = [
 
 
     const retiredCoffees = [
+      {
+        coffee: "Honduras Finca Las Moras Honey",
+        roast: "Light to Medium",
+        process: "Honey",
+        tools: "V60/Drip/Espresso",
+        flavor: "Apricot; brown sugar; rose; creamy chocolate",
+        notes: "This honey-process lot comes from third-generation producer Heber Hernan Avila at Finca Las Moras, a farm named for the area's blackberries. Apricot, brown sugar, and rose lead the cup; a deeper profile becomes creamy and chocolatey while retaining a gentle fruit acidity.",
+        availability: "Retired for now",
+        price: "$19.00",
+        bag: "8 oz",
+        origin: "Honduras — Finca Las Moras; produced by third-generation farmer Heber Hernan Avila."
+      },
       {
         coffee: "Costa Rica La Minita Geisha Honey",
         roast: "Light to Medium",
