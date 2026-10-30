@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -571,18 +570,6 @@ const coffees = [
     origin: "Mexico — Bella Vista, Chiapas; Rosalba Cifuentes family lot; single-varietal Bourbon; 4,000–5,000 ft."
   },
   {
-    coffee: "New! El Salvador Pacamara Natural",
-    roast: "Light",
-    process: "Natural",
-    tools: "V60/AeroPress/Drip",
-    flavor: "Candy-like cherry; orange; cranberry; light chocolate",
-    notes: "A sundried natural microlot of the large, slender Pacamara varietal from Finca Noruega, a farm that grows almost exclusively Pacamara and processes it several different ways. Roasted light — just barely out of first cracks — it turns out candy-sweet with cherry (almost like a gummy candy), orange, cranberry, and a whisper of chocolate underneath.",
-    availability: "Available",
-    price: "$24.00",
-    bag: "8 oz",
-    origin: "El Salvador — Finca Noruega. US Arrival: September 2026."
-  },
-  {
     coffee: "New! Java Dadar",
     roast: "Medium to Dark",
     process: "Washed",
@@ -593,18 +580,6 @@ const coffees = [
     price: "$19.00",
     bag: "8 oz",
     origin: "Indonesia — Java Island, Taman Dadar co-op, villages of Curah Tatal and Kayumas. Organic and Rainforest Alliance certified. US Arrival September 2026."
-  },
-  {
-    coffee: "New! Sumatra Gayo Ribang Natural",
-    roast: "Light to Medium",
-    process: "Natural",
-    tools: "V60/AeroPress/Espresso",
-    flavor: "Cherry; blackberry; raspberry; fig; slightly herbal",
-    notes: "A rare fully natural-process coffee out of Sumatra — most Indonesian coffee is wet-hulled and earthy, but this well-sorted lot from the Gayo people of Ribang skips that step entirely. The result is juicy and fruit-forward, with great crema when pulled as espresso and cherry, blackberry, raspberry, and fig without any sour or smoky notes.",
-    availability: "Available",
-    price: "$19.00",
-    bag: "8 oz",
-    origin: "Indonesia — Gayo region, Ribang. Arrival Sept 2026."
   },
   {
     coffee: "New! Sumatra Aceh Takengon",
@@ -636,7 +611,7 @@ const coffees = [
     process: "Washed",
     tools: "Drip/V60/French Press/Espresso",
     flavor: "Caramel nougat; almond; vanilla wafer; pear and citrus undertones",
-    notes: "A washed Bourbon microlot from Finca Santa Josefita, grown around 4,000 feet in the mountains near the Guatemalan border. The farm has won Cup of Excellence three times and protects a centuries-old patch of rainforest. Roasted lightly, it shows bright, tangy caramel nougat sweetness with a nutty almond aftertaste, like a vanilla wafer. At a medium roast it becomes a classic, traditional cup with subtle pear, caramel, and citrus undertones, far better than your typical El Salvador.",
+    notes: "A washed Bourbon microlot from Finca Santa Josefita, grown around 4,000 feet in the mountains near the Guatemalan border. The farm has won Cup of Excellence three times and protects a centuries-old patch of rainforest. It shows bright, tangy caramel nougat sweetness with a nutty almond aftertaste, like a vanilla wafer, with subtle pear, caramel, and citrus undertones, far better than your typical El Salvador.",
     availability: "Available",
     price: "$19.00",
     bag: "8 oz",
@@ -648,11 +623,59 @@ const coffees = [
     process: "Natural",
     tools: "V60/AeroPress/Espresso",
     flavor: "Baked sourdough; chocolate; butterscotch; bitter herbs; warm spice",
-    notes: "A rare natural-process Yemen from the Mokka varietal, one of the hardest coffees in the world to grow and export, and one that tastes like nothing else. Expect a wild, malty, hoppy cup with baked-bread and butterscotch sweetness, dark chocolate, and a sultry spiciness, with some tart fruit in the background. The beans are small and uneven, as with every Yemen, and it's a natural pairing for dessert. Roasted light, just past first crack, to keep the malty bread and butterscotch character.",
+    notes: "A rare natural-process Yemen from the Mokka varietal, one of the hardest coffees in the world to grow and export, and one that tastes like nothing else. Expect a wild, malty, hoppy cup with baked-bread and butterscotch sweetness, dark chocolate, and a sultry spiciness, with some tart fruit in the background. The beans are small and uneven, as with every Yemen, and it's a natural pairing for dessert.",
     availability: "Limited",
     price: "$24.00",
     bag: "8 oz",
     origin: "Yemen — Mokka varietal; natural process."
+  },
+  {
+    coffee: "New! Guatemala Natural San Martin",
+    roast: "Light",
+    process: "Natural",
+    tools: "V60/AeroPress/Espresso/Drip",
+    flavor: "Bread/cookie; raisin; cherry; melon; chocolate; raspberry tartness",
+    notes: "A rare natural-process Guatemala from the Solano family's Concepción Buena Vista ('Good View') farm, high in the mountains of San Martin. It's strictly Yellow Bourbon. The cup has a bread and cookie note with dried fruit like raisin and cherry, a touch of melon, and sometimes a savory watercress edge, plus chocolate and a raspberry tartness on the edges of the tongue. It makes excellent espresso, and it's quite smooth with a body that holds up well. It's not an Ethiopia and not a typical Guatemala, but a category of its own.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Guatemala — San Martin; Concepción Buena Vista farm (Solano family); Yellow Bourbon. US Arrival: October 2026."
+  },
+  {
+    coffee: "New! Ethiopia Yirgacheffe Kochere Washed",
+    roast: "Light",
+    process: "Washed",
+    tools: "V60/Chemex/AeroPress/Iced filter",
+    flavor: "Jasmine; lemon and lime; caramel; chocolate finish; floral",
+    notes: "Washed Yirgacheffe is the taste of sunshine, botanical gardens, and happiness, and this one comes from the Kochere mill, grown around 6,000 feet in one of the most highly regarded Yirgacheffe areas. You smell sweet flowers the moment you grind it, then taste lemon and lime with a caramel and chocolate finish that gives it a fuller mouthfeel than most washed Ethiopias. The flavor shifts as the cup cools, so every sip is a little different. It's clean, with no earthiness.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Ethiopia — Yirgacheffe, Kochere mill; Grade 2; ~6,000 ft. US Arrival: October 2026."
+  },
+  {
+    coffee: "Rachel's favorite pour-over: Ethiopia Sidamo Natural Shantawene",
+    roast: "Light",
+    process: "Natural",
+    tools: "V60/AeroPress/Iced",
+    flavor: "Strawberry; watermelon; citrus; milk chocolate",
+    notes: "A natural-process Sidamo that placed 7th in the Ethiopia Cup of Excellence, grown by a co-op of farmers in Shantawene Village and processed at the Daye Bensa Mill. It's a sweet, true Sidamo with juicy, candy-like strawberry and watermelon, citrus, and some milk chocolate, with no earthiness or astringency. Rachel's favorite beans for pour-over.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Ethiopia — Sidamo, Shantawene Village co-op; Daye Bensa Mill; Cup of Excellence 7th place."
+  },
+  {
+    coffee: "New! Decaf Colombia (EA Process)",
+    roast: "Light to Medium",
+    process: "EA (sugarcane ethyl acetate) decaf",
+    tools: "Drip/V60/AeroPress/Espresso",
+    flavor: "Citrus; sweetness; complex; good mouthfeel",
+    notes: "One of the nicest decaf Colombians we've tasted. It tastes much like a washed Costa Rica, with citrus, sweetness, a fair amount of complexity, and pretty good mouthfeel. The EA process uses ethyl acetate, a compound found in sugarcane, to remove about 97% of the caffeine, and it may keep more flavor in the cup than any other decaf method.",
+    availability: "Available",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Colombia — EA (sugarcane) decaf process."
   },
 
  {
@@ -694,18 +717,6 @@ const coffees = [
     origin: "Kenya — Embu region, Karurumo washing station; AA size."
   },
   {
-    coffee: "Tanzania Peaberry Plus Washed",
-    roast: "Light to Medium",
-    process: "Washed",
-    tools: "V60/AeroPress/Drip",
-    flavor: "Milk chocolate, pecan, red currant, chamomile, citrus",
-    notes: "This washed peaberry lot combines small, round seeds selected from Tanzania's highland harvests. Red currant, lime, and black tea bring clarity, while bittersweet chocolate, brown sugar, and raisin add a familiar base; lighter roasts are crisp and bright, while deeper roasts feel rounder and sweeter.",
-    availability: "Available",
-    price: "$19.00",
-    bag: "8 oz",
-    origin: "Tanzania — Mbeya & Songwe, southern highlands."
-  },
-  {
     coffee: "Customer favorite: Uganda Bugisu Mt. Elgon",
     roast: "Medium to Dark",
     process: "Washed",
@@ -731,18 +742,6 @@ const coffees = [
   },
  
   {
-    coffee: "Zambia Anaerobic Natural Kateshi Estate",
-    roast: "Light",
-    process: "Anaerobic natural",
-    tools: "V60/AeroPress",
-    flavor: "Kiwi; orange; white wine; crisp/tangy finish",
-    notes: "From Kateshi Estate near Zambia's northern Mafinga highlands, this rare anaerobic natural is crisp, dry, and highly distinctive. Kiwi and orange lead into a white-wine character with a lively tangy finish, giving the cup a bright, sophisticated feel.",
-    availability: "Available",
-    price: "$19.00",
-    bag: "8 oz",
-    origin: "Zambia — Mafinga Region, Kateshi Estate (AAA screen; RFA). Organic farming method, not certified."
-  },
-  {
     coffee: "Costa Rica La Pradera Washed",
     roast: "Light",
     process: "Washed",
@@ -753,18 +752,6 @@ const coffees = [
     price: "$19.00",
     bag: "8 oz",
     origin: "Costa Rica — La Pradera farm."
-  },
-  {
-    coffee: "Costa Rica Montaño Jaguar Anaerobic",
-    roast: "Light to Medium",
-    process: "Anaerobic fermentation",
-    tools: "V60/AeroPress/Espresso",
-    flavor: "Tropical fruit, red berries, wine-like sweetness, cocoa finish",
-    notes: "Produced by smallholders working with Juan Ramon at Montaño Micro-Mill, this anaerobic honey coffee is rich, modern, and fruit-forward. Raspberry and hibiscus brightness mingle with tropical fruit, brown spice, honeyed sweetness, and a cocoa-like finish in a rounded, juicy body.",
-    availability: "Available",
-    price: "$19.00",
-    bag: "8 oz",
-    origin: "Costa Rica — Tarrazú, Montaño Jaguar; 1,600–1,800 m."
   },
   {
     coffee: "Costa Rica Red Honey La Pradera",
@@ -842,18 +829,6 @@ const coffees = [
     origin: "Colombia — Cauca. Rainforest Alliance certified."
   },
   {
-    coffee: "Colombia Cauca Maria Rosa Oidor",
-    roast: "Medium",
-    process: "Washed",
-    tools: "Drip/V60/French Press",
-    flavor: "Brown sugar; red fruit; mild floral; bittersweet cocoa; clean finish",
-    notes: "A sweet, polished Cauca microlot with brown sugar, red fruit, and soft floral aromatics. The cup settles into a clean bittersweet-cocoa finish, with a balanced medium body that makes its complexity feel approachable.",
-    availability: "Available",
-    price: "$19.00",
-    bag: "8 oz",
-    origin: "Colombia — Cauca. Rainforest Alliance certified."
-  },
-  {
     coffee: "Colombia Huila El Tiple Supremo EP",
     roast: "Medium",
     process: "Washed",
@@ -876,18 +851,6 @@ const coffees = [
     price: "$19.00",
     bag: "8 oz",
     origin: "Colombia — Huila, La Suiza Estate."
-  },
-  {
-    coffee: "Colombia Tolima Organic",
-    roast: "Medium",
-    process: "Washed",
-    tools: "V60/AeroPress/Drip",
-    flavor: "Raspberry, strawberry, dried apricot, cane sugar, citrus zest",
-    notes: "An organic Tolima with a rounded body and an easy balance of fruit, sweetness, and cocoa. Raspberry, strawberry, and dried apricot meet cane sugar and citrus zest, while a deeper profile reveals molasses, cherry, and chocolate.",
-    availability: "Available",
-    price: "$19.00",
-    bag: "8 oz",
-    origin: "Colombia — Tolima, Cordillera de Calarma; small family farms."
   },
   {
     coffee: "Peru Cusco",
@@ -915,11 +878,11 @@ const coffees = [
   },
   {
     coffee: "Organic Decaf Sumatra MWP",
-    roast: "Medium",
+    roast: "Medium to Dark",
     process: "Decaf (Mountain Water)",
     tools: "Drip / French press / Espresso",
-    flavor: "Rich, full-bodied, smooth decaf",
-    notes: "A rich, full-bodied Mountain Water Process decaf that preserves Sumatra's deep and comforting character. Dark chocolate, smooth sweetness, and a clean lingering finish make it an excellent choice for guests who want intensity without caffeine.",
+    flavor: "Rich, full-bodied, smooth decaf; more body and flavor than other decafs",
+    notes: "Our favorite decaf: it has more body and flavor than any other origin, and it's one of the few decafs available both Fair Trade and Organic. The Mountain Water Process (done at a plant in Mexico) is less bitter and more flavorful than Swiss Water. It gives a dark, full-bodied, smooth, rich cup, an excellent choice for guests who want intensity without caffeine.",
     availability: "Available",
     price: "$19.00",
     bag: "8 oz",
@@ -967,6 +930,90 @@ const coffees = [
 
 
     const retiredCoffees = [
+      {
+    coffee: "El Salvador Pacamara Natural",
+    roast: "Light",
+    process: "Natural",
+    tools: "V60/AeroPress/Drip",
+    flavor: "Candy-like cherry; orange; cranberry; light chocolate",
+    notes: "A sundried natural microlot of the large, slender Pacamara varietal from Finca Noruega, a farm that grows almost exclusively Pacamara and processes it several different ways. Roasted light — just barely out of first cracks — it turns out candy-sweet with cherry (almost like a gummy candy), orange, cranberry, and a whisper of chocolate underneath.",
+    availability: "Retired for now",
+    price: "$24.00",
+    bag: "8 oz",
+    origin: "El Salvador — Finca Noruega. US Arrival: September 2026."
+  },
+      {
+    coffee: "Zambia Anaerobic Natural Kateshi Estate",
+    roast: "Light",
+    process: "Anaerobic natural",
+    tools: "V60/AeroPress",
+    flavor: "Kiwi; orange; white wine; crisp/tangy finish",
+    notes: "From Kateshi Estate near Zambia's northern Mafinga highlands, this rare anaerobic natural is crisp, dry, and highly distinctive. Kiwi and orange lead into a white-wine character with a lively tangy finish, giving the cup a bright, sophisticated feel.",
+    availability: "Retired for now",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Zambia — Mafinga Region, Kateshi Estate (AAA screen; RFA). Organic farming method, not certified."
+  },
+      {
+    coffee: "Tanzania Peaberry Plus Washed",
+    roast: "Light to Medium",
+    process: "Washed",
+    tools: "V60/AeroPress/Drip",
+    flavor: "Milk chocolate, pecan, red currant, chamomile, citrus",
+    notes: "This washed peaberry lot combines small, round seeds selected from Tanzania's highland harvests. Red currant, lime, and black tea bring clarity, while bittersweet chocolate, brown sugar, and raisin add a familiar base; lighter roasts are crisp and bright, while deeper roasts feel rounder and sweeter.",
+    availability: "Retired for now",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Tanzania — Mbeya & Songwe, southern highlands."
+  },
+      {
+    coffee: "Costa Rica Montaño Jaguar Anaerobic",
+    roast: "Light to Medium",
+    process: "Anaerobic fermentation",
+    tools: "V60/AeroPress/Espresso",
+    flavor: "Tropical fruit, red berries, wine-like sweetness, cocoa finish",
+    notes: "Produced by smallholders working with Juan Ramon at Montaño Micro-Mill, this anaerobic honey coffee is rich, modern, and fruit-forward. Raspberry and hibiscus brightness mingle with tropical fruit, brown spice, honeyed sweetness, and a cocoa-like finish in a rounded, juicy body.",
+    availability: "Retired for now",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Costa Rica — Tarrazú, Montaño Jaguar; 1,600–1,800 m."
+  },
+      {
+    coffee: "Colombia Cauca Maria Rosa Oidor",
+    roast: "Medium",
+    process: "Washed",
+    tools: "Drip/V60/French Press",
+    flavor: "Brown sugar; red fruit; mild floral; bittersweet cocoa; clean finish",
+    notes: "A sweet, polished Cauca microlot with brown sugar, red fruit, and soft floral aromatics. The cup settles into a clean bittersweet-cocoa finish, with a balanced medium body that makes its complexity feel approachable.",
+    availability: "Retired for now",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Colombia — Cauca. Rainforest Alliance certified."
+  },
+      {
+    coffee: "Colombia Tolima Organic",
+    roast: "Medium",
+    process: "Washed",
+    tools: "V60/AeroPress/Drip",
+    flavor: "Raspberry, strawberry, dried apricot, cane sugar, citrus zest",
+    notes: "An organic Tolima with a rounded body and an easy balance of fruit, sweetness, and cocoa. Raspberry, strawberry, and dried apricot meet cane sugar and citrus zest, while a deeper profile reveals molasses, cherry, and chocolate.",
+    availability: "Retired for now",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Colombia — Tolima, Cordillera de Calarma; small family farms."
+  },
+      {
+    coffee: "Sumatra Gayo Ribang Natural",
+    roast: "Light to Medium",
+    process: "Natural",
+    tools: "V60/AeroPress/Espresso",
+    flavor: "Cherry; blackberry; raspberry; fig; slightly herbal",
+    notes: "A rare fully natural-process coffee out of Sumatra — most Indonesian coffee is wet-hulled and earthy, but this well-sorted lot from the Gayo people of Ribang skips that step entirely. The result is juicy and fruit-forward, with great crema when pulled as espresso and cherry, blackberry, raspberry, and fig without any sour or smoky notes.",
+    availability: "Retired for now",
+    price: "$19.00",
+    bag: "8 oz",
+    origin: "Indonesia — Gayo region, Ribang. Arrival Sept 2026."
+  },
       {
         coffee: "Honduras Finca Las Moras Honey",
         roast: "Light to Medium",
@@ -1076,18 +1123,6 @@ const coffees = [
   bag: "8 oz",
   origin: "Rwanda — Karambi."
 },
-      {
-        coffee: "Ethiopia Shantawene",
-        roast: "Light",
-        process: "Natural",
-        tools: "V60 / AeroPress / Iced",
-        flavor: "Strawberry & watermelon, citrus, milk chocolate",
-        notes: "A natural-process coffee from Shantawene village and the Daye Bensa mill, with a candy-like fruit character and a remarkably clean finish. Strawberry and watermelon meet citrus and milk chocolate in a juicy, refreshing cup with no heavy earthiness.",
-        availability: "Available",
-        price: "$18.00",
-        bag: "8 oz",
-        origin: "Ethiopia — Sidamo (Shantawene Village / Daye Bensa)"
-      },
      {
   coffee: "Kenya Kiamabara",
   roast: "Light",
