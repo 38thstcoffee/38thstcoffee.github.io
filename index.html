@@ -452,6 +452,7 @@
         <option>Available</option>
         <option>Limited</option>
         <option>End of Season</option>
+        <option>Coming Soon!</option>
       </select>
       <select id="filterRoast">
         <option value="">All roast recommendations</option>
@@ -508,9 +509,105 @@
 
 <script>
 const coffees = [
+  {
+    coffee: "Kenya Kiambu AB",
+    roast: "",
+    process: "",
+    tools: "",
+    flavor: "",
+    notes: "",
+    availability: "Coming Soon!",
+    price: "",
+    bag: "",
+    origin: "Kenya — Kiambu"
+  },
+  {
+    coffee: "Ethiopia Yirgacheffe Washed Chelchele",
+    roast: "",
+    process: "Washed",
+    tools: "",
+    flavor: "",
+    notes: "",
+    availability: "Coming Soon!",
+    price: "",
+    bag: "",
+    origin: "Ethiopia — Yirgacheffe, Chelchele"
+  },
+  {
+    coffee: "Uganda Natural Rwenzori",
+    roast: "",
+    process: "Natural",
+    tools: "",
+    flavor: "",
+    notes: "",
+    availability: "Coming Soon!",
+    price: "",
+    bag: "",
+    origin: "Uganda — Rwenzori"
+  },
+  {
+    coffee: "Colombia Huila Santa Maria Natural",
+    roast: "",
+    process: "Natural",
+    tools: "",
+    flavor: "",
+    notes: "",
+    availability: "Coming Soon!",
+    price: "",
+    bag: "",
+    origin: "Colombia — Huila, Santa Maria"
+  },
+  {
+    coffee: "Sumatra Kerinci Natural",
+    roast: "",
+    process: "Natural",
+    tools: "",
+    flavor: "",
+    notes: "",
+    availability: "Coming Soon!",
+    price: "",
+    bag: "",
+    origin: "Indonesia — Sumatra, Kerinci"
+  },
+  {
+    coffee: "Bali Natural Kintamani",
+    roast: "",
+    process: "Natural",
+    tools: "",
+    flavor: "",
+    notes: "",
+    availability: "Coming Soon!",
+    price: "",
+    bag: "",
+    origin: "Indonesia — Bali, Kintamani"
+  },
+  {
+    coffee: "Kenya Kamathura AB",
+    roast: "",
+    process: "",
+    tools: "",
+    flavor: "",
+    notes: "",
+    availability: "Coming Soon!",
+    price: "",
+    bag: "",
+    origin: "Kenya — Kamathura"
+  },
+  {
+    coffee: "Ethiopia Guji Kayon Mountain Natural",
+    roast: "",
+    process: "Natural",
+    tools: "",
+    flavor: "",
+    notes: "",
+    availability: "Coming Soon!",
+    price: "",
+    bag: "",
+    origin: "Ethiopia — Guji, Kayon Mountain"
+  },
 
   {
-    coffee: "New! Ethiopia Yirgacheffe Koke Honey",
+    coffee: "Ethiopia Yirgacheffe Koke Honey",
     roast: "Light",
     process: "Honey",
     tools: "V60/AeroPress/Espresso",
@@ -522,7 +619,7 @@ const coffees = [
     origin: "Ethiopia — Gedeo Zone, Gedeb; Koke Co-op; Grade 1."
   },
   {
-    coffee: "New! Ethiopia Yirgacheffe Getaneh Girma Natural",
+    coffee: "Ethiopia Yirgacheffe Getaneh Girma Natural",
     roast: "Light",
     process: "Natural",
     tools: "V60/AeroPress/Chemex",
@@ -534,7 +631,7 @@ const coffees = [
     origin: "Ethiopia — Idido, Yirgacheffe; Getaneh Girma's farm; ~1,980 m."
   },
   {
-    coffee: "New! El Salvador Honey Las Ranas",
+    coffee: "El Salvador Honey Las Ranas",
     roast: "Light to Medium",
     process: "Honey / Pulped Natural",
     tools: "V60/Drip/AeroPress",
@@ -546,7 +643,7 @@ const coffees = [
     origin: "El Salvador — Cerro Las Ranas Estate; honey-process microlot grown on volcanic soil; Rainforest Alliance certified."
   },
   {
-    coffee: "New! Mexico Chiapas Rosalba Cifuentes",
+    coffee: "Mexico Chiapas Rosalba Cifuentes",
     roast: "Medium",
     process: "Washed",
     tools: "Drip/V60/French Press/Espresso",
@@ -558,19 +655,19 @@ const coffees = [
     origin: "Mexico — Bella Vista, Chiapas; Rosalba Cifuentes family lot; single-varietal Bourbon; 4,000–5,000 ft."
   },
   {
-    coffee: "New! Java Dadar",
+    coffee: "Java Dadar",
     roast: "Medium to Dark",
     process: "Washed",
     tools: "Drip/French Press/Espresso",
     flavor: "Sweet chocolate; smooth body; molasses; spicy finish (dark roast)",
     notes: "Grown by a private co-op in Taman Dadar ('Flower Garden'), on Java's eastern side, this organic and Rainforest Alliance certified coffee is one of the priciest lots the island produces. A medium roast is smooth, sweet, and lightly chocolatey; pushed darker, it turns into a fun, spicy, molasses-sweet cup with a thick, satisfying body — a distinctive alternative to a classic Sumatra dark roast.",
-    availability: "Available",
+    availability: "Coming Soon!",
     price: "$19.00",
     bag: "8 oz",
     origin: "Indonesia — Java Island, Taman Dadar co-op, villages of Curah Tatal and Kayumas. Organic and Rainforest Alliance certified. US Arrival September 2026."
   },
   {
-    coffee: "New! Sumatra Aceh Takengon",
+    coffee: "Sumatra Aceh Takengon",
     roast: "Dark",
     process: "Wet-hulled",
     tools: "French Press/Espresso/Drip",
@@ -582,7 +679,7 @@ const coffees = [
     origin: "Indonesia — Aceh, Takengon village near Lake Toba; Kopsen Sepakat Gergung co-op. Organic and Fair Trade certified. US Arrival September 2026."
   },
   {
-    coffee: "New! Decaf Colombia (Mountain Water Process)",
+    coffee: "Decaf Colombia (Mountain Water Process)",
     roast: "Medium to Dark",
     process: "Mountain Water Process (MWP) decaf",
     tools: "Drip/French Press/Espresso",
@@ -594,7 +691,7 @@ const coffees = [
     origin: "Colombia — Santa Barbara Estate; Mountain Water Process decaf."
   },
   {
-    coffee: "New! El Salvador Santa Josefita Washed",
+    coffee: "El Salvador Santa Josefita Washed",
     roast: "Medium",
     process: "Washed",
     tools: "Drip/V60/French Press/Espresso",
@@ -606,7 +703,7 @@ const coffees = [
     origin: "El Salvador — Finca Santa Josefita; Bourbon microlot; ~4,000 ft; Rainforest Alliance certified."
   },
   {
-    coffee: "New! Yemen Mokka Natural",
+    coffee: "Yemen Mokka Natural",
     roast: "Light to Medium",
     process: "Natural",
     tools: "V60/AeroPress/Espresso",
@@ -618,7 +715,7 @@ const coffees = [
     origin: "Yemen — Mokka varietal; natural process."
   },
   {
-    coffee: "New! Guatemala Natural San Martin",
+    coffee: "Guatemala Natural San Martin",
     roast: "Light",
     process: "Natural",
     tools: "V60/AeroPress/Espresso/Drip",
@@ -630,7 +727,7 @@ const coffees = [
     origin: "Guatemala — San Martin; Concepción Buena Vista farm (Solano family); Yellow Bourbon. US Arrival: October 2026."
   },
   {
-    coffee: "New! Ethiopia Yirgacheffe Kochere Washed",
+    coffee: "Ethiopia Yirgacheffe Kochere Washed",
     roast: "Light",
     process: "Washed",
     tools: "V60/Chemex/AeroPress/Iced filter",
@@ -654,7 +751,7 @@ const coffees = [
     origin: "Ethiopia — Sidamo, Shantawene Village co-op; Daye Bensa Mill; Cup of Excellence 7th place."
   },
   {
-    coffee: "New! Decaf Colombia (EA Process)",
+    coffee: "Decaf Colombia (EA Process)",
     roast: "Light to Medium",
     process: "EA (sugarcane ethyl acetate) decaf",
     tools: "Drip/V60/AeroPress/Espresso",
